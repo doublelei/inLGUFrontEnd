@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 
 function Section(props) {
-    return (<div class="profile-section">
-        <div class="row">
-            <div class="col-lg-5 col-md-5 ">
-                <ul class="profile-menu">
+    return (<div className="profile-section">
+        <div className="row">
+            <div className="col-lg-5 col-md-5 ">
+                <ul className="profile-menu">
                     <li>
-                        <a href="#" class="active">Homepage</a>
+                        <a href="#" className="active">Homepage</a>
                     </li>
                     <li>
                         <a href="#">MyPosts</a>
@@ -17,8 +17,8 @@ function Section(props) {
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-5 ml-auto col-md-5">
-                <ul class="profile-menu">
+            <div className="col-lg-5 ml-auto col-md-5">
+                <ul className="profile-menu">
                     <li>
                         <a href="#">Followers</a>
                     </li>
@@ -32,12 +32,12 @@ function Section(props) {
 }
 
 function Author(props) {
-    return (<div class="top-header-author">
-        <a href="#" class="author-thumb">
+    return (<div className="top-header-author">
+        <a href="#" className="author-thumb">
             <img src={props.avatar} alt="author" />
         </a>
-        <div class="author-content">
-            <a href="#" class="h4 author-name">{props.name}</a>
+        <div className="author-content">
+            <a href="#" className="h4 author-name">{props.name}</a>
         </div>
     </div>
     )

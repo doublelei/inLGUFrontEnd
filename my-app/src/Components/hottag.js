@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 function Tag(props) {
-    const tags = props.tags.map((tag) => <span class="badge badge-pill badge-success" style={{ margin: "2px 2px 2px 2px" }} >{tag}</span>);
+    const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{ margin: "2px 2px 2px 2px" }} >{tag}</span>);
     return (
     <div style={{ margin: "2px 2px 2px 2px" }}>
         {tags}
@@ -17,9 +17,9 @@ class Hottags extends Component {
         return (
             <div className="ui-block">
                 <div className="ui-block-title">
-                    <h6 class="title">Hot Tags</h6>
+                    <h6 className="title">Hot Tags</h6>
                 </div>
-                <div class="ui-block-content" style={{padding: "5px 10px 5px 10px"}}>
+                <div className="ui-block-content" style={{padding: "5px 10px 5px 10px"}}>
                     <Tag tags={tags} />
                 </div>
             </div>

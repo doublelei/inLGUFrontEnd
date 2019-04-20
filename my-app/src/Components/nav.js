@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 function Title(props) {
     return (
-        <div class="page-title">
+        <div className="page-title">
             <h6>{props.title}</h6>
         </div>
     )
@@ -11,19 +11,19 @@ function Title(props) {
 
 function Search(props) {
     return (
-        <form class="search-bar w-search notification-list friend-requests">
-            <div class="form-group with-button is-empty">
-                <input class="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabindex="-1" value="" style={{ dispaly: "none" }} />
-                <div class="selectize-control form-control js-user-search multi">
-                    <div class="selectize-input items not-full has-options">
+        <form className="search-bar w-search notification-list friend-requests">
+            <div className="form-group with-button is-empty">
+                <input className="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabindex="-1" value="" style={{ dispaly: "none" }} />
+                <div className="selectize-control form-control js-user-search multi">
+                    <div className="selectize-input items not-full has-options">
                         <input type="text" autocomplete="off" tabindex="" placeholder="Search here people or pages..." style={{ width: "229.859px" }} />
                     </div>
-                    <div class="selectize-dropdown multi form-control js-user-search" style={{ display: "none", width: "500px", top: "70px", left: "0px" }}>
-                        <div class="selectize-dropdown-content"></div></div></div>
+                    <div className="selectize-dropdown multi form-control js-user-search" style={{ display: "none", width: "500px", top: "70px", left: "0px" }}>
+                        <div className="selectize-dropdown-content"></div></div></div>
                 <button>
-                    <svg class="olymp-magnifying-glass-icon"><use xlinkHref="icons/icons.svg#olymp-magnifying-glass-icon"></use></svg>
+                    <svg className="olymp-magnifying-glass-icon"><use xlinkHref="icons/icons.svg#olymp-magnifying-glass-icon"></use></svg>
                 </button>
-                <span class="material-input"></span>
+                <span className="material-input"></span>
             </div>
         </form>
     )
@@ -31,32 +31,32 @@ function Search(props) {
 
 function Notifications(props) {
     return (
-        <div class="control-icon more has-items">
-            <svg class="olymp-thunder-icon"><use xlinkHref="icons/icons.svg#olymp-thunder-icon"></use></svg>
+        <div className="control-icon more has-items">
+            <svg className="olymp-thunder-icon"><use xlinkHref="icons/icons.svg#olymp-thunder-icon"></use></svg>
 
-            <div class="label-avatar bg-primary">8</div>
+            <div className="label-avatar bg-primary">8</div>
 
-            <div class="more-dropdown more-with-triangle triangle-top-center">
-                <div class="ui-block-title ui-block-title-small">
-                    <h6 class="title">Notifications</h6>
+            <div className="more-dropdown more-with-triangle triangle-top-center">
+                <div className="ui-block-title ui-block-title-small">
+                    <h6 className="title">Notifications</h6>
                     <a href="#">Mark all as read</a>
                 </div>
 
-                <div class="mCustomScrollbar ps ps--theme_default ps--active-y" data-mcs-theme="dark" data-ps-id="1b3f3c3b-dad2-3aa9-5917-4909939f28bd">
-                    <ul class="notification-list">
+                <div className="mCustomScrollbar ps ps--theme_default ps--active-y" data-mcs-theme="dark" data-ps-id="1b3f3c3b-dad2-3aa9-5917-4909939f28bd">
+                    <ul className="notification-list">
                         <Notification avatar="img/avatar62-sm.jpg" name="Mathilda Brinker" action="commented" />
                     </ul>
-                    <div class="ps__scrollbar-x-rail" style={{ left: "0px", bottom: "0px" }}>
-                        <div class="ps__scrollbar-x" tabindex="0" style={{ left: "0px", width: "0px" }}>
+                    <div className="ps__scrollbar-x-rail" style={{ left: "0px", bottom: "0px" }}>
+                        <div className="ps__scrollbar-x" tabindex="0" style={{ left: "0px", width: "0px" }}>
                         </div>
                     </div>
-                    <div class="ps__scrollbar-y-rail" style={{ top: "0px", height: "300px", right: "0px" }}>
-                        <div class="ps__scrollbar-y" tabindex="0" style={{ top: "0px", height: "148px" }}>
+                    <div className="ps__scrollbar-y-rail" style={{ top: "0px", height: "300px", right: "0px" }}>
+                        <div className="ps__scrollbar-y" tabindex="0" style={{ top: "0px", height: "148px" }}>
                         </div>
                     </div>
                 </div>
 
-                <a href="#" class="view-all bg-primary">View All Notifications</a>
+                <a href="#" className="view-all bg-primary">View All Notifications</a>
             </div>
         </div>
     )
@@ -66,18 +66,18 @@ function Notifications(props) {
 function Notification(props) {
     return (
         <li>
-            <div class="author-thumb">
+            <div className="author-thumb">
                 <img src={props.avatar} alt="author" />
             </div>
-            <div class="notification-event">
-                <div><a href="#" class="h6 notification-friend">{props.name}</a> {props.action} on your<a href="#" class="notification-link">post</a>.</div>
-                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
+            <div className="notification-event">
+                <div><a href="#" className="h6 notification-friend">{props.name}</a> {props.action} on your<a href="#" className="notification-link">post</a>.</div>
+                <span className="notification-date"><time className="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
             </div>
-            <span class="notification-icon">
-                <svg class="olymp-comments-post-icon"><use xlinkHref="icons/icons.svg#olymp-comments-post-icon"></use></svg>
+            <span className="notification-icon">
+                <svg className="olymp-comments-post-icon"><use xlinkHref="icons/icons.svg#olymp-comments-post-icon"></use></svg>
             </span>
-            <div class="more">
-                <svg class="olymp-little-delete"><use xlinkHref="icons/icons.svg#olymp-little-delete"></use></svg>
+            <div className="more">
+                <svg className="olymp-little-delete"><use xlinkHref="icons/icons.svg#olymp-little-delete"></use></svg>
             </div>
         </li>
     )
@@ -85,26 +85,26 @@ function Notification(props) {
 
 function Author(props) {
     return (
-        <div class="author-page author vcard inline-items more">
-            <div class="author-thumb">
-                <img alt="author" src="img/author-page.jpg" class="avatar" />
-                <span class="icon-status online"></span>
-                <div class="more-dropdown more-with-triangle">
-                    <div class="mCustomScrollbar ps ps--theme_default" data-mcs-theme="dark" data-ps-id="159c809c-36e9-fa65-ea20-01a26d50da7d">
-                        <div class="ui-block-title ui-block-title-small">
-                            <h6 class="title">Your Account</h6>
+        <div className="author-page author vcard inline-items more">
+            <div className="author-thumb">
+                <img alt="author" src="img/author-page.jpg" className="avatar" />
+                <span className="icon-status online"></span>
+                <div className="more-dropdown more-with-triangle">
+                    <div className="mCustomScrollbar ps ps--theme_default" data-mcs-theme="dark" data-ps-id="159c809c-36e9-fa65-ea20-01a26d50da7d">
+                        <div className="ui-block-title ui-block-title-small">
+                            <h6 className="title">Your Account</h6>
                         </div>
 
-                        <ul class="account-settings">
+                        <ul className="account-settings">
                             <li>
                                 <a href="#">
-                                    <svg class="olymp-menu-icon"><use xlinkHref="icons/icons.svg#olymp-menu-icon"></use></svg>
+                                    <svg className="olymp-menu-icon"><use xlinkHref="icons/icons.svg#olymp-menu-icon"></use></svg>
                                     <span>Profile Settings</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <svg class="olymp-logout-icon"><use xlinkHref="icons/icons.svg#olymp-logout-icon"></use></svg>
+                                    <svg className="olymp-logout-icon"><use xlinkHref="icons/icons.svg#olymp-logout-icon"></use></svg>
 
                                     <span>Log Out</span>
                                 </a>
@@ -112,8 +112,8 @@ function Author(props) {
                         </ul>
 
 
-                        <div class="ui-block-title ui-block-title-small">
-                            <h6 class="title">About Olympus</h6>
+                        <div className="ui-block-title ui-block-title-small">
+                            <h6 className="title">About Olympus</h6>
                         </div>
 
                         <ul>
@@ -138,23 +138,23 @@ function Author(props) {
                                 </a>
                             </li>
                         </ul>
-                        <div class="ps__scrollbar-x-rail" style={{ left: "0px", bottom: "0px" }}>
-                            <div class="ps__scrollbar-x" tabindex="0" style={{left: "0px", width: "0px"}}>
+                        <div className="ps__scrollbar-x-rail" style={{ left: "0px", bottom: "0px" }}>
+                            <div className="ps__scrollbar-x" tabindex="0" style={{left: "0px", width: "0px"}}>
                             </div>
                         </div>
-                        <div class="ps__scrollbar-y-rail" style={{top: "0px", right: "0px"}}>
-                            <div class="ps__scrollbar-y" tabindex="0" style={{top: "0px", height: "0px"}}>
+                        <div className="ps__scrollbar-y-rail" style={{top: "0px", right: "0px"}}>
+                            <div className="ps__scrollbar-y" tabindex="0" style={{top: "0px", height: "0px"}}>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <a href="#" class="author-name fn">
-                <div class="author-title">
-                    James Spiegel <svg class="olymp-dropdown-arrow-icon"><use xlinkHref="icons/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+            <a href="#" className="author-name fn">
+                <div className="author-title">
+                    James Spiegel <svg className="olymp-dropdown-arrow-icon"><use xlinkHref="icons/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
                 </div>
-                <span class="author-subtitle">SPACE COWBOY</span>
+                <span className="author-subtitle">SPACE COWBOY</span>
             </a>
         </div>
     )
@@ -163,12 +163,12 @@ function Author(props) {
 class NavBar extends Component {
     render() {
         return (
-            <header class="header" id="site-header">
+            <header className="header" id="site-header">
                 <Title title="inLGU"/>
-                <div class="header-content-wrapper">
+                <div className="header-content-wrapper">
                     <Search />
-                    <a href="#" class="link-find-friend">Find Friends</a>
-                    <div class="control-block">
+                    <a href="#" className="link-find-friend">Find Friends</a>
+                    <div className="control-block">
                         <Notifications />
                         <Author />
 

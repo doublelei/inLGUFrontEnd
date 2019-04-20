@@ -2386,12 +2386,12 @@ body {
     height: 18px; }
 
 .update-header-photo {
-  width: 770px; }
+  width: 300px; }
 
 .upload-photo-item {
   display: inline-block;
   vertical-align: middle;
-  width: 49%;
+  width: 98%;
   padding: 50px;
   text-align: center;
   fill: #c2c5d9;

@@ -1,14 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
 import NavBar from './nav.js';
-import NewPost from './new_post.js'
 import Post from './post.js';
-import Modals from './modal.js'
-import Weather from './w_weather.js'
-import Calendar from './calendar.js'
 import Head from './head.js'
-import Hottags from "./hottag.js"
-import ActivityFeed from "./activityfeed.js"
 
 
 function LoadMore(props) {
@@ -21,7 +15,7 @@ function LoadMore(props) {
     )
 }
 
-class Homepage extends Component {
+class Postcollections extends Component {
     render() {
         return (
             <body>
@@ -36,30 +30,20 @@ class Homepage extends Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
-                            <NewPost />
-                            <div id="newsfeed-items-grid">
-                                <Post />
-                            </div>
-                            <LoadMore />
+                        <main className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <Post />
+                            <Post />
+                        </main>
+                        <main className="col-xl-6 col-lg-12 col-md- col-sm-12 col-xs-12">
+                            <Post />
+                            <Post />
                         </main>
 
-                        <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
-                            <Weather />
-                            <Calendar />
-                        </aside>
-
-                        <aside className="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
-                            <Hottags />
-                            <ActivityFeed />
-                        </aside>
                     </div>
                 </div>
-
-                <Modals />
             </body>
         );
     }
 }
 
-export default Homepage;
+export default Postcollections;

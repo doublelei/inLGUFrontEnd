@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
-
+import Uploadimg from './upload.js'
+ 
 function NewPostAuthorThumb(props) {
     return (
         <div className="author-thumb">
@@ -31,15 +32,19 @@ function NewPostButton(props) {
             <a className="options-message" href="#" data-original-title="ADD LOCATION" data-toggle="tooltip" data-placement="top">
                 <svg xmlns="http://www.w3.org/2000/svg" className="olymp-small-pin-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-small-pin-icon" /></svg>
             </a>
-            <button className="btn btn-primary btn-md-2">Post Status</button>
-            <button className="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview</button>
+            
+            <button className="btn btn-primary btn-md-2">Post</button>
+            <div class="checkbox clicked" style={{display: "inline", padding:"5px 10px 0 0", verticalAlign: "middle", float: "right"}}>
+                <label>
+                    <input type="checkbox" name="optionsCheckboxes"/>Anonymous
+				</label>
+            </div>
+
         </div>
 
 
     )
 }
-
-
 
 class NewPost extends Component {
     render() {

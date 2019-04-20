@@ -36,12 +36,12 @@ function PostBottom(props) {
   return (
     <div className="post-additional-info inline-items">
       <a href="#" className="post-add-icon inline-items">
-        <svg class="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
+        <svg className="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
         <span>0 Likes</span>
       </a>
       <div className="comments-shared">
         <a data-toggle="collapse" href="#Comments" className="post-add-icon inline-items" role="button" aria-expanded="false" aria-controls="Comments">
-          <svg class="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
+          <svg className="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
           <span>0 Comments</span>
         </a>
       </div>
@@ -53,23 +53,23 @@ function PostSideButton(props) {
   return (
     <div className="control-block-button post-control-button">
       <a href="#" className="btn btn-control">
-        <svg class="olymp-star-icon" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-star-icon"></use></svg>      
+        <svg className="olymp-star-icon" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-star-icon"></use></svg>      
       </a>
       <a href="#" className="btn btn-control">
-        <svg class="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
+        <svg className="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
       </a>
       <a href="#" className="btn btn-control">
-        <svg class="olymp-little-delete" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-little-delete"></use></svg>
+        <svg className="olymp-little-delete" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-little-delete"></use></svg>
       </a>
     </div>
   )
 }
 
 function Tag(props) {
-  const tags = props.tags.map((tag) => <span class="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px"}} >{tag}</span>);
+  const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px"}} >{tag}</span>);
   return (<div style={{margin: "2px 2px 2px 2px"}}> 
             {tags}
-            <button type="button" class="badge badge-pill badge-danger">Add Tag</button>
+            <button type="button" className="badge badge-pill badge-danger">Add Tag</button>
           </div>)
 }
 

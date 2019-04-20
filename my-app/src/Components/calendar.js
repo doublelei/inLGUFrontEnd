@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 
 function Month(props) {
     return (<header>
-                <h6 class="month">{props.Month}</h6>
-                <a class="calendar-btn-prev fontawesome-angle-left" href="#"></a>
-                <a class="calendar-btn-next fontawesome-angle-right" href="#"></a>
+                <h6 className="month">{props.Month}</h6>
+                <a className="calendar-btn-prev fontawesome-angle-left" href="#"></a>
+                <a className="calendar-btn-next fontawesome-angle-right" href="#"></a>
             </header>)
 }
 
