@@ -41,6 +41,7 @@
 
   &.nav-tabs .nav-item {
 	margin-bottom: 0;
+	max-height: 100%;
 
 	& + .nav-item {
 	  margin-left: -1px;
@@ -212,6 +213,12 @@
 	}
   }
 
+}
+
+@media (max-width: 768px) {
+  .photo-gallery.nav-tabs .nav-item {
+	width: auto;
+  }
 }
 
 @media (max-width: 480px) {

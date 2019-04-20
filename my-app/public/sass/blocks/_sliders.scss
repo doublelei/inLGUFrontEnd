@@ -52,6 +52,10 @@
   stroke: inherit;
   top: 50%;
   transform: translate(0, -50%);
+
+  &:hover {
+    fill: $primary-color;
+  }
 }
 
 .btn-next, .btn-next-without {
@@ -107,6 +111,10 @@
 
   .btn-next, .btn-prev {
     fill: $icon-color;
+
+    &:hover {
+      fill: $primary-color;
+    }
   }
 
   .btn-next {

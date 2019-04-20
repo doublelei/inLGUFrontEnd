@@ -75,7 +75,7 @@
   .ui-block.responsive-flex .w-search {
     width: auto; } }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .ui-block.responsive-flex .ui-block-title {
     display: flex;
     flex-direction: column; }
@@ -130,11 +130,14 @@
   margin-bottom: 15px;
   position: relative; }
   .btn:hover {
-    opacity: .8; }
+    opacity: .8;
+    color: #fff; }
   .btn:focus {
     box-shadow: none; }
   .btn.c-grey {
     border-color: #d8dbe6; }
+    .btn.c-grey:hover {
+      color: inherit; }
   .btn.disabled, .btn:disabled {
     background-color: #9a9fbf;
     border-color: #9a9fbf; }
@@ -210,6 +213,8 @@ button:hover {
   text-align: center;
   display: block;
   line-height: 40px; }
+  .btn-more:hover {
+    fill: #ff5e3a; }
 
 .btn-border {
   border: solid 2px; }
@@ -243,10 +248,12 @@ button:hover {
 
 .btn-primary:hover {
   background-color: #ff763a;
+  border-color: #ff763a;
   opacity: 1; }
 
 .btn-secondary:hover {
   background-color: #ff5e3a;
+  border-color: #ff5e3a;
   opacity: 1; }
 
 .btn-purple {
@@ -352,6 +359,11 @@ button:hover {
 
 .btn--half-width {
   width: 48%; }
+
+@media (max-width: 360px) {
+  .btn-control .more-dropdown {
+    top: 100%;
+    bottom: auto; } }
 
 /*------------- #FORMS --------------*/
 label.control-label {
@@ -505,7 +517,7 @@ select.form-control {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.26); }
 
-.form-group.is-focused .togglebutton label {
+.form-group.is-focused .togglebutton label, .form-group.has-bootstrap-select .togglebutton label {
   color: rgba(0, 0, 0, 0.26); }
 
 .form-group.is-focused .togglebutton label:hover, .form-group.is-focused .togglebutton label:focus {
@@ -1216,7 +1228,6 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
 /*------------- #FRIENDS --------------*/
 .friend-header-thumb {
   border-bottom: 1px solid #e6ecf5;
-  height: 120px;
   overflow: hidden; }
   .friend-header-thumb img {
     width: 100%; }
@@ -1441,6 +1452,8 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   stroke: inherit;
   top: 50%;
   transform: translate(0, -50%); }
+  .btn-next:hover, .btn-prev:hover, .btn-next-without:hover, .btn-prev-without:hover {
+    fill: #ff5e3a; }
 
 .btn-next, .btn-next-without {
   right: 40px; }
@@ -1476,6 +1489,8 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     bottom: 0; }
   .single-post-slider .btn-next, .single-post-slider .btn-prev {
     fill: #9a9fbf; }
+    .single-post-slider .btn-next:hover, .single-post-slider .btn-prev:hover {
+      fill: #ff5e3a; }
   .single-post-slider .btn-next {
     right: 0; }
   .single-post-slider .btn-prev {
@@ -2402,8 +2417,7 @@ body {
     position: relative; }
     .choose-from-my-photo .ui-block-title .nav-tabs {
       display: flex;
-      border-bottom: none;
-      flex-wrap: unset; }
+      border-bottom: none; }
   .choose-from-my-photo .nav-tabs {
     position: absolute;
     top: 0;
@@ -2417,7 +2431,7 @@ body {
     border-color: #e6ecf5;
     border-top-color: transparent;
     border-right: none;
-    height: 61px; }
+    height: 100%; }
     .choose-from-my-photo .nav-tabs .nav-link.active {
       fill: #ff5e3a;
       background-color: #fff; }
@@ -2852,6 +2866,8 @@ figure {
   .choose-from-my-photo .nav-tabs .nav-link {
     height: 100%;
     display: flex; }
+  .choose-from-my-photo .nav-tabs .nav-item {
+    width: auto; }
   .choose-from-my-photo .nav-tabs .nav-link svg {
     margin: auto; }
   .create-photo-album .btn + .btn {
@@ -3661,9 +3677,12 @@ figure {
     position: relative;
     margin-bottom: 20px;
     border-radius: 5px;
-    overflow: hidden; }
+    overflow: hidden;
+    display: inline-block; }
     .w-last-video li img {
-      width: 100%; }
+      max-width: 100%;
+      margin: 0 auto;
+      display: block; }
     .w-last-video li:last-child {
       margin-bottom: 0; }
     .w-last-video li:hover .overlay {
@@ -4195,14 +4214,18 @@ ol ol li {
     width: auto;
     padding: 0; }
   .comment-form .post__author {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    display: flex;
+    align-items: center; }
     .comment-form .post__author img {
-      margin-right: 8px;
-      width: 28px;
+      margin-right: 10px;
+      min-width: 28px;
+      max-width: 28px;
       height: 28px; }
   .comment-form .form-group {
     margin-bottom: 0;
-    width: 85%; }
+    width: 100%;
+    margin-left: auto; }
   .comment-form textarea {
     min-height: 60px;
     height: 60px;
@@ -4326,7 +4349,8 @@ ol ol li {
     border-top: none;
     border-left: none;
     border-right: none; }
-  .news-feed-form .form-group.label-floating.is-focused .control-label {
+  .news-feed-form .form-group.label-floating.is-focused .control-label,
+  .news-feed-form .form-group.label-floating.has-bootstrap-select .control-label {
     top: 16px; }
   .news-feed-form .options-message {
     margin-top: 7px; }
@@ -4340,7 +4364,8 @@ ol ol li {
   .news-feed-form .author-thumb {
     position: absolute;
     top: 25px;
-    left: 25px; }
+    left: 25px;
+    z-index: 1; }
   .news-feed-form .form-group {
     margin-bottom: 0; }
 
@@ -4411,7 +4436,8 @@ ol ol li {
       width: 18px;
       height: 20px; }
   .photo-gallery.nav-tabs .nav-item {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    max-height: 100%; }
     .photo-gallery.nav-tabs .nav-item + .nav-item {
       margin-left: -1px; }
 
@@ -4525,6 +4551,10 @@ ol ol li {
       width: 100%;
       border-radius: 5px 5px 0 0;
       overflow: hidden; }
+
+@media (max-width: 768px) {
+  .photo-gallery.nav-tabs .nav-item {
+    width: auto; } }
 
 @media (max-width: 480px) {
   .photo-item .post-add-icon {
@@ -5401,6 +5431,10 @@ ol ol li {
     color: #ff5e3a;
     padding: 0;
     font-size: 10px; }
+    .post-category.bg-transparent:hover {
+      color: #ff5e3a; }
+  .post-category:hover {
+    color: #fff; }
 
 .blog-post-v1:hover .post-title {
   opacity: 1;
@@ -5867,7 +5901,7 @@ ol ol li {
   background-color: #7442ce; }
 
 .bg-primary {
-  background-color: #ff5e3a !important; }
+  background-color: #ff5e3a; }
 
 .bg-secondary {
   background-color: #3f4257; }

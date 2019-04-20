@@ -363,7 +363,7 @@
   bottom: 15px;
   text-align: center;
   max-width: 200px;
-  z-index: 18; }
+  z-index: 4; }
   .top-header-author .author-thumb {
     border-radius: 100%;
     border: 6px solid #fff;
@@ -613,7 +613,7 @@
     color: #ff5e3a;
     background-color: transparent; }
   .header-menu.open {
-    transform: translateX(0); }
+    transform: translateX(71px); }
 
 .header--standard-wrap {
   display: flex;
@@ -1201,10 +1201,12 @@
 @media (max-width: 768px) {
   .header, .fixed-sidebar {
     display: none; }
+  .header--standard.headroom--not-top {
+    padding: 5px; }
   .header-responsive, .fixed-sidebar.fixed-sidebar-responsive {
     display: block; }
   .header-responsive .mobile-app-tabs .nav-link {
-    padding: 0 7px; }
+    padding: 0 5px; }
   .search-bar.w-search {
     width: 100%; }
   .tab-content-responsive {
@@ -1288,7 +1290,7 @@
     position: fixed;
     height: 100vh;
     width: 270px;
-    transform: translateX(100%);
+    transform: translateX(calc(100% + 70px));
     right: 0;
     top: 0;
     text-align: left;
@@ -1386,8 +1388,14 @@
     width: 100%;
     left: 0;
     z-index: 20; }
+  .header-menu {
+    transform: translateX(100%); }
+    .header-menu.open {
+      transform: translateX(0); }
   .header-spacer--standard {
-    height: 130px; } }
+    height: 130px; }
+  .top-header.top-header-favorit .author-name {
+    font-size: 18px; } }
 
 /*------------- #FOOTER --------------*/
 .footer {
@@ -1715,6 +1723,8 @@ ul {
 
 a {
   transition: all .15s ease; }
+  a:hover {
+    color: #ff5e3a; }
 
 select,
 input,
@@ -1759,7 +1769,8 @@ p {
 
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
-.form-group.label-floating:not(.is-empty) label.control-label {
+.form-group.label-floating:not(.is-empty) label.control-label,
+.form-group.has-bootstrap-select label.control-label {
   top: 10px;
   font-size: 11px;
   line-height: 1.07143; }
@@ -1819,4 +1830,7 @@ blockquote {
     @media (max-width: 640px) {
       blockquote p {
         font-size: 16px; } }
+
+button.btn {
+  padding: .5rem 1rem; }
 

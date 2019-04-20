@@ -9,9 +9,12 @@
 	margin-bottom: 20px;
 	border-radius: 5px;
 	overflow: hidden;
+	display: inline-block;
 
 	 img {
-	  width: 100%;
+	  max-width: 100%;
+	  margin: 0 auto;
+	  display: block;
 	}
 
 	&:last-child {

@@ -193,7 +193,7 @@ select.form-control {
   cursor: pointer;
   color: rgba(0,0,0, 0.26);
 }
-.form-group.is-focused .togglebutton label {
+.form-group.is-focused .togglebutton label, .form-group.has-bootstrap-select .togglebutton label {
   color: rgba(0,0,0, 0.26);
 }
 .form-group.is-focused .togglebutton label:hover, .form-group.is-focused .togglebutton label:focus {

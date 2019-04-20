@@ -22,22 +22,17 @@ html {
   box-sizing: inherit;
 }
 
-
-//
-// Variables
-//
-
+@import "functions";
 @import "variables";
+@import "custom";
 
 //
 // Grid mixins
 //
 
-@import "mixins/clearfix";
 @import "mixins/breakpoints";
 @import "mixins/grid-framework";
 @import "mixins/grid";
 
-@import "custom";
-
 @import "grid";
+@import "utilities/flex";
