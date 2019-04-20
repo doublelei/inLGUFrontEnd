@@ -8,10 +8,6 @@ ul {
 
 a {
   transition: all .15s ease;
-
-  &:hover {
-    color: $primary-color;
-  }
 }
 
 select,
@@ -65,8 +61,7 @@ p {
 
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
-.form-group.label-floating:not(.is-empty) label.control-label,
-.form-group.has-bootstrap-select label.control-label {
+.form-group.label-floating:not(.is-empty) label.control-label {
   top: 10px;
   font-size: 11px;
   line-height: 1.07143;
@@ -144,8 +139,4 @@ blockquote {
       font-size: 16px;
     }
   }
-}
-
-button.btn {
-  padding: .5rem 1rem;
 }

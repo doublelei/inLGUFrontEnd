@@ -45,8 +45,7 @@
 	border-right: none;
   }
 
-  .form-group.label-floating.is-focused .control-label,
-  .form-group.label-floating.has-bootstrap-select .control-label {
+  .form-group.label-floating.is-focused .control-label {
 	top: 16px;
   }
 
@@ -71,7 +70,6 @@
 	position: absolute;
 	top: 25px;
 	left: 25px;
-	z-index: 1;
   }
 
   .form-group {

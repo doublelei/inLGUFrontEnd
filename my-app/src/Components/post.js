@@ -1,6 +1,5 @@
 'use strict';
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg'
 
 function PostInfo(props) {
   return (
@@ -37,17 +36,21 @@ function PostBottom(props) {
   return (
     <div className="post-additional-info inline-items">
       <a href="#" className="post-add-icon inline-items">
-        <ReactSVG src="./icons/icons.svg#olymp-heart-icon" />
+        <svg class="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
         <span>0 Likes</span>
       </a>
+      <span class="badge badge-pill badge-primary">Primary</span>
+      <span class="badge badge-pill badge-secondary">Secondary</span>
+      <span class="badge badge-pill badge-success">Success</span>
+      <span class="badge badge-pill badge-danger">Danger</span>
+      <span class="badge badge-pill badge-warning">Warning</span>
+      <span class="badge badge-pill badge-info">Info</span>
+      <span class="badge badge-pill badge-light">Light</span>
+      <span class="badge badge-pill badge-dark">Dark</span>
       <div className="comments-shared">
         <a data-toggle="collapse" href="#Comments" className="post-add-icon inline-items" role="button" aria-expanded="false" aria-controls="Comments">
-          <ReactSVG src="./icons/icons.svg#olymp-speech-balloon-icon" />
+          <svg class="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
           <span>0 Comments</span>
-        </a>
-        <a href="#" className="post-add-icon inline-items">
-          <ReactSVG src="./icons/icons.svg#olymp-share-icon" />
-          <span>2 Shares</span>
         </a>
       </div>
     </div>
@@ -58,13 +61,13 @@ function PostSideButton(props) {
   return (
     <div className="control-block-button post-control-button">
       <a href="#" className="btn btn-control">
-        <ReactSVG src="./icons/icons.svg#olymp-like-post-icon" svgClassName="olymp-like-post-icon" evalScripts="always" />
+        <svg class="olymp-like-post-icon"><use xlinkHref="icons/icons.svg#olymp-like-post-icon"></use></svg>
       </a>
       <a href="#" className="btn btn-control">
-        <ReactSVG src="./icons/icons.svg#olymp-comments-post-icon" />
+        <svg class="olymp-comments-post-icon"><use xlinkHref="icons/icons.svg#olymp-comments-post-icon"></use></svg>
       </a>
       <a href="#" className="btn btn-control">
-        <ReactSVG src="./icons/icons.svg#olymp-share-icon" />
+        <svg class="olymp-share-icon"><use xlinkhref="icons/icons.svg#olymp-share-icon"></use></svg>
       </a>
     </div>
   )

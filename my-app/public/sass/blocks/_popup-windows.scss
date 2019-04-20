@@ -117,6 +117,7 @@
 	.nav-tabs {
 	  display: flex;
 	  border-bottom: none;
+	  flex-wrap: unset;
 	}
   }
 
@@ -135,7 +136,7 @@
 	border-color: $border-color;
 	border-top-color: transparent;
 	border-right: none;
-	height: 100%;
+	height: 61px;
 
 	&.active {
 	  fill: $primary-color;
@@ -832,10 +833,6 @@ figure {
   .choose-from-my-photo .nav-tabs .nav-link {
 	height: 100%;
 	display: flex;
-  }
-
-  .choose-from-my-photo .nav-tabs .nav-item {
-	width: auto;
   }
 
   .choose-from-my-photo .nav-tabs .nav-link svg {

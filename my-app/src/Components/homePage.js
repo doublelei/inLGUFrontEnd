@@ -5,6 +5,7 @@ import NewPost from './new_post.js'
 import Post from './post.js';
 import Modals from './modal.js'
 import Weather from './w_weather.js'
+import Calendar from './calendar.js'
 
 function LoadMore(props){
     return(
@@ -34,6 +35,7 @@ class Homepage extends Component {
 
                     <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
                         <Weather />
+                        <Calendar />
                     </aside>
 
                     <aside className="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
