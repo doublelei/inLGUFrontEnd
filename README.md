@@ -12,15 +12,15 @@
 
 √ 6. Follow Page; redesign friend cards.
 
-7. Collect Page; Same as Personal Page
+√ 7. Collect Page; Same as Personal Page
 
-8. Picture upload;
+? 8. Picture upload;
 
-9. Navigation Bar; redesign, remove search box.
+√ 9. Navigation Bar; redesign, remove search box.
 
-10. Anonymous checkbox;
+√ 10. Anonymous checkbox
 
-11. Resize column space;
+? 11. Resize column space;
 
 12. request Api
 
