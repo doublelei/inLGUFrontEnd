@@ -1258,7 +1258,7 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     padding: 10px; }
 
 .friend-avatar {
-  margin-top: -49px;
+  margin-top: 0;
   position: relative;
   margin-bottom: 30px; }
   .friend-avatar .author-thumb {

@@ -6,9 +6,13 @@ import Post from './post.js';
 import Modals from './modal.js'
 import Weather from './w_weather.js'
 import Calendar from './calendar.js'
+import Head from './head.js'
+import Hottags from "./hottag.js"
+import ActivityFeed from "./activityfeed.js"
 
-function LoadMore(props){
-    return(
+
+function LoadMore(props) {
+    return (
         <a id="load-more-button" href="#" className="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid">
             <svg className="olymp-three-dots-icon">
                 <use xlinkHref="#olymp-three-dots-icon" />
@@ -19,33 +23,44 @@ function LoadMore(props){
 
 class Homepage extends Component {
     render() {
-      return (
-        <body>
-            <NavBar />
-            <div className="container">
-            <br />
-                <div className="row">
-                    <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
-                        <NewPost />
-                        <div id="newsfeed-items-grid">
-                            <Post />
+        return (
+            <body>
+                <NavBar />
+                <div class="header-spacer"></div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <Head />
                         </div>
-                        <LoadMore />
-                    </main>
 
-                    <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
-                        <Weather />
-                        <Calendar />
-                    </aside>
-
-                    <aside className="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
-                    </aside>
+                    </div>
                 </div>
-            </div>
-            <Modals />
-        </body>
-      );
+                <div className="container">
+                    <div className="row">
+                        <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
+                            <NewPost />
+                            <div id="newsfeed-items-grid">
+                                <Post />
+                            </div>
+                            <LoadMore />
+                        </main>
+
+                        <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
+                            <Weather />
+                            <Calendar />
+                        </aside>
+
+                        <aside className="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <Hottags />
+                            <ActivityFeed />
+                        </aside>
+                    </div>
+                </div>
+
+                <Modals />
+            </body>
+        );
     }
-  }
+}
 
 export default Homepage;

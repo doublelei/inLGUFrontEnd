@@ -39,14 +39,6 @@ function PostBottom(props) {
         <svg class="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
         <span>0 Likes</span>
       </a>
-      <span class="badge badge-pill badge-primary">Primary</span>
-      <span class="badge badge-pill badge-secondary">Secondary</span>
-      <span class="badge badge-pill badge-success">Success</span>
-      <span class="badge badge-pill badge-danger">Danger</span>
-      <span class="badge badge-pill badge-warning">Warning</span>
-      <span class="badge badge-pill badge-info">Info</span>
-      <span class="badge badge-pill badge-light">Light</span>
-      <span class="badge badge-pill badge-dark">Dark</span>
       <div className="comments-shared">
         <a data-toggle="collapse" href="#Comments" className="post-add-icon inline-items" role="button" aria-expanded="false" aria-controls="Comments">
           <svg class="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
@@ -61,16 +53,24 @@ function PostSideButton(props) {
   return (
     <div className="control-block-button post-control-button">
       <a href="#" className="btn btn-control">
-        <svg class="olymp-like-post-icon"><use xlinkHref="icons/icons.svg#olymp-like-post-icon"></use></svg>
+        <svg class="olymp-star-icon" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-star-icon"></use></svg>      
       </a>
       <a href="#" className="btn btn-control">
-        <svg class="olymp-comments-post-icon"><use xlinkHref="icons/icons.svg#olymp-comments-post-icon"></use></svg>
+        <svg class="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
       </a>
       <a href="#" className="btn btn-control">
-        <svg class="olymp-share-icon"><use xlinkhref="icons/icons.svg#olymp-share-icon"></use></svg>
+        <svg class="olymp-little-delete" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-little-delete"></use></svg>
       </a>
     </div>
   )
+}
+
+function Tag(props) {
+  const tags = props.tags.map((tag) => <span class="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px"}} >{tag}</span>);
+  return (<div style={{margin: "2px 2px 2px 2px"}}> 
+            {tags}
+            <button type="button" class="badge badge-pill badge-danger">Add Tag</button>
+          </div>)
 }
 
 function CommentList(props) {
@@ -146,8 +146,10 @@ function CommentForm(props) {
   )
 }
 
+const tags = ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "very long tag", "very long tag","very long tag", "very long tag", "very long tag", "very long tag", "very long tag"]
+
 class Post extends Component {
-  render() {
+    render() {
     return (
       <div className="ui-block">
         <article className="hentry post has-post-thumbnail">
@@ -156,6 +158,7 @@ class Post extends Component {
           <PostBottom />
           <PostSideButton />
           <br />
+          <Tag tags={tags}/>
           <div className="collapse" id="Comments">
             <CommentList />
             <MoreComment />

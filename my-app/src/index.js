@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Homepage from './Components/homePage.js'
 import Profile from './Components/profilePage.js'
+import Follow from './Components/follow'
 import * as serviceWorker from './serviceWorker';
 
 //ReactDOM.render(<Homepage />, document.getElementById('root'));
