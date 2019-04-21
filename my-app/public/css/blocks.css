@@ -2386,7 +2386,7 @@ body {
     height: 18px; }
 
 .update-header-photo {
-  width: 300px; }
+  width: 25%; }
 
 .upload-photo-item {
   display: inline-block;
@@ -2410,6 +2410,10 @@ body {
   .upload-photo-item:hover {
     fill: #ff5e3a;
     background-color: #fafbfd; }
+
+.upload-photo-item-hide {
+  display: "none";
+}
 
 .choose-from-my-photo {
   width: 770px; }

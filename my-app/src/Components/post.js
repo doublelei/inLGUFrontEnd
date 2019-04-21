@@ -21,7 +21,7 @@ function PostContent(props) {
   return (
     <div>
       <a href="#" data-target="#post-view-photo" data-toggle="modal">
-        <img className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
+        <img style={{marginRight: "1rem"}} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
       </a>
       <p>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -69,7 +69,7 @@ function Tag(props) {
   const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px"}} >{tag}</span>);
   return (<div style={{margin: "2px 2px 2px 2px"}}> 
             {tags}
-            <button type="button" className="badge badge-pill badge-danger">Add Tag</button>
+            <button type="button" className="badge badge-pill badge-success">+</button>
           </div>)
 }
 

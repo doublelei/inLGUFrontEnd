@@ -4,7 +4,7 @@ import NavBar from './nav.js';
 import NewPost from './new_post.js'
 import Post from './post.js';
 import Modals from './modal.js'
-import Weather from './w_weather.js'
+import Weather from './weather.js'
 import Calendar from './calendar.js'
 import Head from './head.js'
 import Hottags from "./hottag.js"
@@ -24,7 +24,7 @@ function LoadMore(props) {
 class Homepage extends Component {
     render() {
         return (
-            <body>
+            <div>
                 <NavBar />
                 <div className="header-spacer"></div>
                 <div className="container">
@@ -57,7 +57,7 @@ class Homepage extends Component {
                 </div>
 
                 <Modals />
-            </body>
+            </div>
         );
     }
 }

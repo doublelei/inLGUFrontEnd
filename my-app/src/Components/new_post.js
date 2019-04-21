@@ -1,6 +1,5 @@
 'use strict';
 import React, { Component } from 'react';
-import Uploadimg from './upload.js'
  
 function NewPostAuthorThumb(props) {
     return (
@@ -39,10 +38,7 @@ function NewPostButton(props) {
                     <input type="checkbox" name="optionsCheckboxes"/>Anonymous
 				</label>
             </div>
-
         </div>
-
-
     )
 }
 
