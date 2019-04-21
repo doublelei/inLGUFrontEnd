@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import ReactDropZone from 'react-dropzone'
-
 export default class DropzoneComp extends React.Component {
     constructor(props) {
         super(props)
@@ -28,7 +27,6 @@ export default class DropzoneComp extends React.Component {
         const imgs = this.state.files.map(file => (
             <img
                 className="img-thumbnail"
-                
                 src={URL.createObjectURL(file)} />
         ));
         const files = this.state;

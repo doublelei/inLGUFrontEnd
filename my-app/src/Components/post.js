@@ -66,10 +66,10 @@ function PostSideButton(props) {
 }
 
 function Tag(props) {
-  const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px"}} >{tag}</span>);
+  const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px", fontWeight:"400", fontSize: "100%"}} ><font color="#F8F8F8">{tag}</font></span>);
   return (<div style={{margin: "2px 2px 2px 2px"}}> 
             {tags}
-            <button type="button" className="badge badge-pill badge-success">+</button>
+            <button type="button" className="btn badge-pill badge-success" data-toggle="modal" data-target="#add-tag" style={{marginBottom:"0", padding:".15rem .4rem"}}>+</button>
           </div>)
 }
 

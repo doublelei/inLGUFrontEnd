@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
- 
+
 function NewPostAuthorThumb(props) {
     return (
         <div className="author-thumb">
