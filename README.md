@@ -36,5 +36,3 @@ Mintian:
 1. request Api
 
 2. Data stream
-
-
