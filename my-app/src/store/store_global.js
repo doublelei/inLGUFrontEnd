@@ -1,5 +1,4 @@
 import { observable, action } from 'mobx';
-import {get_status} from '../api/api';
 
 const GlobalStore = observable( {
     notification: [],

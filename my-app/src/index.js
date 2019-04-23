@@ -7,11 +7,14 @@ import Postcollections from './Components/collection.js'
 import NotFound from './Components/404.js'
 import * as serviceWorker from './serviceWorker.js';
 import stores from './store/stores.js'
+import Login from './Components/loginPage.js'
 
-import MobxTest from './mobxTest'
-import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
-import { IndexRoute } from 'react-router'
+import routerTest from './Components/routerTest'
+import { BrowserRouter as Router, Link, Route, Switch, Redirect} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
+//configure toast
+toast.configure()
 
 //ReactDOM.render(<Homepage />, document.getElementById('root'));
 ReactDOM.render(
@@ -19,9 +22,11 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/profile" component={Profile} />
-            <Route path="/follow" component={Follow} />
-            <Route path="/collection" component={Postcollections} />
+            <Route path="/follow/:para" component={Follow} />
+            <Route path="/collection/:para" component={Postcollections} />
+            <Route path="/login" component={Login} />
             <Route path="/404" component={NotFound} />
+            <Redirect from='*' to='/404' />
         </Switch>
     </Router>
     , document.getElementById('root'));
