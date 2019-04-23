@@ -24,15 +24,20 @@ Leo:
 
 √ 11. Resize column space;
 
-12. New Post pic preview
+? 12. Redesign Tags
 
-13. Page Redirection
-
-14. Bottom Loading
-
-15. Redesign Tags
+√ 13. Add tags pop-up windows
 
 Mintian:
 1. request Api
 
 2. Data stream
+
+3. New Post pic preview
+
+4. Bottom Loading
+
+5. Page Redirection
+
+Additional:
+1. Weather API
