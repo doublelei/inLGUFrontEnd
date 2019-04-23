@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 function PostInfo(props) {
   return (
     <div className="post__author author vcard inline-items">
-      <img src="img/avatar3-sm.jpg" alt="author" />
+      <img src={props.avatar} alt="author" />
       <div className="author-date">
-        <a className="h6 post__author-name fn" href="#">{props.author}</a>
+        <a className="h6 post__author-name fn" href="#">{props.username}</a>
         <div className="post__date">
           <time className="published" dateTime="2004-07-24T18:18">
-            {props.time}
-            </time>
+            {props.created_at}
+          </time>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@ function PostContent(props) {
   return (
     <div>
       <a href="#" data-target="#post-view-photo" data-toggle="modal">
-        <img style={{marginRight: "1rem"}} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
+        <img style={{ marginRight: "1rem" }} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
       </a>
       <p>
         {props.content}
@@ -51,7 +51,7 @@ function PostSideButton(props) {
   return (
     <div className="control-block-button post-control-button">
       <a href="#" className="btn btn-control">
-        <svg className="olymp-star-icon" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-star-icon"></use></svg>      
+        <svg className="olymp-star-icon" data-toggle="tooltip" data-placement="right" data-original-title="FAV PAGE"><use xlinkHref="icons/icons.svg#olymp-star-icon"></use></svg>
       </a>
       <a href="#" className="btn btn-control">
         <svg className="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
@@ -64,58 +64,39 @@ function PostSideButton(props) {
 }
 
 function Tag(props) {
-  const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{margin: "0px 2px 2px 2px", fontWeight:"400", fontSize: "100%"}} ><font color="#F8F8F8">{tag}</font></span>);
-  return (<div style={{margin: "2px 2px 2px 2px"}}> 
-            {tags}
-            <button type="button" className="btn badge-pill badge-success" data-toggle="modal" data-target="#add-tag" style={{marginBottom:"0", padding:".15rem .4rem"}}>+</button>
-          </div>)
+  const tags = props.tags.map((tag) =>
+    <span className="badge badge-pill badge-success" style={{ margin: "0px 2px 2px 2px", fontWeight: "400", fontSize: "100%" }} ><font color="#F8F8F8">{tag}</font>
+    </span>);
+  return (<div style={{ margin: "2px 2px 2px 2px" }}>
+    {tags}
+    <button type="button" className="btn badge-pill badge-success" data-toggle="modal" data-target="#add-tag" style={{ marginBottom: "0", padding: ".15rem .4rem" }}>+</button>
+  </div>)
 }
 
 function CommentList(props) {
-  return (
-    <ul className="comments-list">
-      <li>
+  const comments = props.comments.map((comment) => <li>
         <div className="post__author author vcard inline-items">
           <img alt="author" src="img/author-page.jpg" />
           <div className="author-date">
-            <a className="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+            <a className="h6 post__author-name fn" href="02-ProfilePage.html">{comment.account.username}</a>
             <div className="post__date">
               <time className="published" dateTime="2004-07-24T18:18">
-                38 mins ago
+                {comment.created_at}
           </time>
             </div>
           </div>
           <a className="more" href="#"><svg xmlns="http://www.w3.org/2000/svg" className="olymp-three-dots-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-three-dots-icon" /></svg></a>
         </div>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+        <p>{comment.content}</p>
         <a className="post-add-icon inline-items" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" className="olymp-heart-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-heart-icon" /></svg>
-          <span>3</span>
+          <span>{comment.likes_count}</span>
         </a>
         <a className="reply" href="#">Reply</a>
-      </li>
-      <li>
-        <div className="post__author author vcard inline-items">
-          <img alt="author" src="img/avatar1-sm.jpg" />
-          <div className="author-date">
-            <a className="h6 post__author-name fn" href="#">Mathilda Brinker</a>
-            <div className="post__date">
-              <time className="published" dateTime="2004-07-24T18:18">
-                1 hour ago
-          </time>
-            </div>
-          </div>
-          <a className="more" href="#"><svg xmlns="http://www.w3.org/2000/svg" className="olymp-three-dots-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-three-dots-icon" /></svg></a>
-        </div>
-        <p>Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum
-          quia dolor sit amet, consectetur adipisci velit en lorem ipsum duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
-    </p>
-        <a className="post-add-icon inline-items" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" className="olymp-heart-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-heart-icon" /></svg>
-          <span>8</span>
-        </a>
-        <a className="reply" href="#">Reply</a>
-      </li>
+      </li>);
+  return (
+    <ul className="comments-list">
+      {comments}
     </ul>
   )
 }
@@ -144,67 +125,19 @@ function CommentForm(props) {
   )
 }
 
-class Pollcontent extends Component {
-  render() {
-    return (
-      <li>
-							<div class="skills-item">
-								<div class="skills-item-info">
-									<span class="skills-item-title">
-										<span class="radio">
-											<label>
-												<input type="radio" name="optionsRadios"/><span class="circle"></span><span class="check"></span>
-											Michael Streiton
-											</label>
-										</span>
-									</span>
-									<span class="skills-item-count"><span class="count-animate" data-speed="1000" data-refresh-interval="50" data-to="11" data-from="0"></span><span class="units">11%</span></span>
-								</div>
-								<div class="skills-item-meter">
-									<span class="skills-item-meter-active bg-primary skills-animate" style="width: 11%; opacity: 1;"></span>
-								</div>
-
-								<div class="counter-friends">2 people voted for this</div>
-
-								<ul class="friends-harmonic">
-									<li>
-										<a href="#">
-											<img src="img/friend-harmonic14.jpg" alt="friend"/>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<img src="img/friend-harmonic15.jpg" alt="friend"/>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-    )
-  }
-}
-
-const tags = ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "very long tag", "very long tag","very long tag", "very long tag", "very long tag", "very long tag", "very long tag"]
-
-
 class Post extends Component {
-    constructor (props) {
-      super(props)
-      this.state = {author: "", time: "", content: "No Content", likes: "0", comments: "0"}
-    }
-
-    render() {
+  render() {
     return (
       <div className="ui-block">
         <article className="hentry post has-post-thumbnail">
-          <PostInfo author={this.state.author} time={this.state.time} />
-          <PostContent content={this.state.content}/>
-          <PostBottom likes={this.state.likes} comments={this.state.comments} />
+          <PostInfo avatar={this.props.account.avatar} username={this.props.account.username} created_at={this.props.created_at} />
+          <PostContent content={this.props.content} />
+          <PostBottom likes={this.props.likes_count} comments={this.props.replies_count} />
           <PostSideButton />
           <br />
-          <Tag tags={tags}/>
+          <Tag tags={this.props.tags} />
           <div className="collapse" id="Comments">
-            <CommentList />
+            <CommentList {...this.props}/>
             <MoreComment />
             <CommentForm />
           </div>

@@ -8,7 +8,7 @@ function Activity(props) {
                 <img src={props.avatar} alt="author" />
             </div>
             <div className="notification-event">
-                <a href="#" className="h6 notification-friend">{props.name}</a> {props.action} on {props.targetname}’s <a href="#" className="notification-link">post.</a>.
+                <a href="#" className="h6 notification-friend">{props.username}</a> {props.action} on {props.targetname}’s <a href="#" className="notification-link">post.</a>.
             <span className="notification-date"><time className="entry-date updated" datetime="2004-07-24T18:18">{props.time}</time></span>
             </div>
         </li>
@@ -16,10 +16,6 @@ function Activity(props) {
 }
 
 class ActivityFeed extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { date: new Date() };
-    }
     render() {
         return (
             <div className="ui-block">
@@ -27,13 +23,7 @@ class ActivityFeed extends Component {
                     <h6 className="title">Activity Feed</h6>
                 </div>
                 <ul className="widget w-activity-feed notification-list">
-                    <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
-                    <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
-                    <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
-                    <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
-                    <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
-
-
+                    {this.props.activity_feed.map((activity) => <Activity {...activity} />)}
                 </ul>
             </div>
         );

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import NavBar from './nav.js';
 import Head from './head.js'
 import Modals from './modal.js'
+import { observable, autorun, action, decorate } from "mobx";
+import { inject } from 'mobx-react';
 
 function Searchfriend(props) {
     return (
@@ -35,20 +37,20 @@ function Friends(props) {
                                 <img src={props.avatar} alt="author" />
                             </div>
                             <div className="author-content">
-                                <a href="#" className="h5 author-name">{props.name}</a>
+                                <a href="#" className="h5 author-name">{props.username}</a>
                             </div>
                         </div>
                         <div className="friend-count">
                             <a href="#" className="friend-count-item">
-                                <div className="h6">{props.follows}</div>
+                                <div className="h6">{props.following_count}</div>
                                 <div className="title">Follows</div>
                             </a>
                             <a href="#" className="friend-count-item">
-                                <div className="h6">{props.followers}</div>
+                                <div className="h6">{props.followers_count}</div>
                                 <div className="title">Followers</div>
                             </a>
                             <a href="#" className="friend-count-item">
-                                <div className="h6">{props.post}</div>
+                                <div className="h6">{props.statuses_count}</div>
                                 <div className="title">Posts</div>
                             </a>
                         </div>
@@ -66,47 +68,69 @@ function Friends(props) {
         </div>)
 }
 
-class Follow extends Component {
+class _Follow extends Component {
     render() {
         return (
             <body>
-                <NavBar />
+                <NavBar {...this.props.GlobalStore} />
                 <div className="header-spacer"></div>
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <Head />
+                            <Head {...this.props.GlobalStore.accounts} />
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <Searchfriend name="James" page="Followers" num="86" />
+                            <Searchfriend name={this.props.GlobalStore.accounts.username} page="Followers" num={this.props.GlobalStore.accounts.followers_count} />
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-                        <Friends avatar="img/avatar1.jpg" name="Nicholas Grissom" followers="240" follows="52" post="16" />
-
+                        {this.props.FollowStore.accounts.map((account) => <Friends {...account} />)}
                     </div>
                 </div>
-
                 <Modals />
             </body>
         );
     }
 }
 
-export default Follow;
+class _Follower extends Component {
+    render() {
+        return (
+            <body>
+                <NavBar {...this.props.GlobalStore} />
+                <div className="header-spacer"></div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <Head {...this.props.GlobalStore.accounts} />
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <Searchfriend name={this.props.GlobalStore.accounts.username} page="Follows" num={this.props.GlobalStore.accounts.following_count} />
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        {this.props.FollowerStore.accounts.map((account) => <Friends {...account} />)}
+                    </div>
+                </div>
+                <Modals />
+            </body>
+        );
+    }
+}
+
+const Follow = inject('FollowStore', 'GlobalStore')(_Follow)
+const Follower = inject('FollowerStore', 'GlobalStore')(_Follower)
+
+export { Follow, Follower };

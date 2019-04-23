@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 function NewPostAuthorThumb(props) {
     return (
         <div className="author-thumb">
-            <img alt="author" src="img/author-page.jpg" />
+            <img alt="author" src={props.avatar} />
         </div>
     )
 }
@@ -49,7 +49,7 @@ class NewPost extends Component {
                 <div className="news-feed-form">
                     <div className="" aira-expanded="true">
                         <form>
-                            <NewPostAuthorThumb />
+                            <NewPostAuthorThumb {...this.props}/>
                             <NewPostInput />
                             <NewPostButton />
                         </form>

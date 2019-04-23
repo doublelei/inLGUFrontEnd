@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 
 function Tag(props) {
-    const tags = props.tags.map((tag) => <span className="badge badge-pill badge-success" style={{ margin: "2px 2px 2px 2px" }} >{tag}</span>);
+    const tags = props.tags.map((tag) =>
+        <span className="badge badge-pill badge-success" style={{ margin: "0px 2px 2px 2px", fontWeight: "400", fontSize: "100%" }} ><font color="#F8F8F8">{tag}</font>
+        </span>);
     return (
-    <div style={{ margin: "2px 2px 2px 2px" }}>
-        {tags}
-    </div>)
+        <div style={{ margin: "2px 2px 2px 2px" }}>
+            {tags}
+        </div>)
 }
 
 
@@ -19,8 +21,8 @@ class Hottags extends Component {
                 <div className="ui-block-title">
                     <h6 className="title">Hot Tags</h6>
                 </div>
-                <div className="ui-block-content" style={{padding: "5px 10px 5px 10px"}}>
-                    <Tag tags={tags} />
+                <div className="ui-block-content" style={{ padding: "5px 10px 5px 10px" }}>
+                    <Tag tags={this.props.hot_tag} />
                 </div>
             </div>
         );
