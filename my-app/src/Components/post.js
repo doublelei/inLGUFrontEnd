@@ -146,6 +146,46 @@ function CommentForm(props) {
   )
 }
 
+class Pollcontent extends Component {
+  render() {
+    return (
+      <li>
+							<div class="skills-item">
+								<div class="skills-item-info">
+									<span class="skills-item-title">
+										<span class="radio">
+											<label>
+												<input type="radio" name="optionsRadios"/><span class="circle"></span><span class="check"></span>
+											Michael Streiton
+											</label>
+										</span>
+									</span>
+									<span class="skills-item-count"><span class="count-animate" data-speed="1000" data-refresh-interval="50" data-to="11" data-from="0"></span><span class="units">11%</span></span>
+								</div>
+								<div class="skills-item-meter">
+									<span class="skills-item-meter-active bg-primary skills-animate" style="width: 11%; opacity: 1;"></span>
+								</div>
+
+								<div class="counter-friends">2 people voted for this</div>
+
+								<ul class="friends-harmonic">
+									<li>
+										<a href="#">
+											<img src="img/friend-harmonic14.jpg" alt="friend"/>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="img/friend-harmonic15.jpg" alt="friend"/>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+    )
+  }
+}
+
 const tags = ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "very long tag", "very long tag","very long tag", "very long tag", "very long tag", "very long tag", "very long tag"]
 
 class Post extends Component {
@@ -169,5 +209,6 @@ class Post extends Component {
     );
   }
 }
+
 
 export default Post;
