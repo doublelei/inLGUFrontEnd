@@ -4,11 +4,14 @@ import Homepage from './Components/homePage.js'
 import Profile from './Components/profilePage.js'
 import Follow from './Components/follow.js'
 import Postcollections from './Components/collection.js'
-import NotFound from './Components/404'
-import * as serviceWorker from './serviceWorker';
+import NotFound from './Components/404.js'
+import * as serviceWorker from './serviceWorker.js';
+import stores from './store/stores.js'
+
 import MobxTest from './mobxTest'
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
 import { IndexRoute } from 'react-router'
+
 
 //ReactDOM.render(<Homepage />, document.getElementById('root'));
 ReactDOM.render(

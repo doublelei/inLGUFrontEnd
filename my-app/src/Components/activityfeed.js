@@ -16,6 +16,10 @@ function Activity(props) {
 }
 
 class ActivityFeed extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { date: new Date() };
+    }
     render() {
         return (
             <div className="ui-block">
@@ -29,7 +33,7 @@ class ActivityFeed extends Component {
                     <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
                     <Activity avatar="img/avatar49-sm.jpg" name="Marina Polson" action="commented" targetname="Jason Mark" />
 
-                
+
                 </ul>
             </div>
         );
