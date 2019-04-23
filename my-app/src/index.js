@@ -3,23 +3,18 @@ import ReactDOM from 'react-dom';
 import Homepage from './Components/homePage.js'
 import Profile from './Components/profilePage.js'
 import Follow from './Components/follow.js'
-import Postcollections from './Components/collection.js'
 import { Follow, Follower } from './Components/follow.js'
 import { MyPost, Collections } from './Components/collection.js'
 import NotFound from './Components/404.js'
 import * as serviceWorker from './serviceWorker.js';
-
-import stores from './store/stores.js'
 import Login from './Components/loginPage.js'
 
-import routerTest from './Components/routerTest'
 import { BrowserRouter as Router, Link, Route, Switch, Redirect} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import Stores from './store/stores.js'
 import { Provider } from 'mobx-react';
 
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import { IndexRoute } from 'react-router'
 
 //configure toast
 toast.configure()
@@ -31,6 +26,7 @@ ReactDOM.render(
         <Router >
             <Switch>
                 <Route exact path="/" component={Homepage} />
+                <Route path="/login" component={Login} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/follow" component={Follow} />
                 <Route path="/follower" component={Follower} />
