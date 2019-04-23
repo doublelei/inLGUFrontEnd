@@ -9,7 +9,7 @@ import Calendar from './calendar.js'
 import Head from './head.js'
 import Hottags from "./hottag.js"
 import ActivityFeed from "./activityfeed.js"
-
+import {observable, autorun, action} from "mobx";
 
 function LoadMore(props) {
     return (
@@ -20,6 +20,11 @@ function LoadMore(props) {
         </a>
     )
 }
+
+const posts=observable([
+    {author: "Leo", time: "2018-08-21", content: "wwwwwwwwwww", likes: "12", comments: "21"},
+    {author: "Brando", time: "2028-08-21", content: "kkkkkkkkkkkkk", likes: "112", comments: "213"}
+  ])
 
 class Homepage extends Component {
     render() {
@@ -39,7 +44,7 @@ class Homepage extends Component {
                         <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
                             <NewPost />
                             <div id="newsfeed-items-grid">
-                                <Post />
+                                <Post props={posts[0]} />
                             </div>
                             <LoadMore />
                         </main>

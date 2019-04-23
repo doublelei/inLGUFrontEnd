@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 function Section(props) {
     return (<div className="profile-section">
@@ -7,23 +8,23 @@ function Section(props) {
             <div className="col-lg-5 col-md-5 ">
                 <ul className="profile-menu">
                     <li>
-                        <a href="#" className="active">Homepage</a>
+                        <Link to="/:uid">Homepage</Link>
                     </li>
                     <li>
-                        <a href="#">MyPosts</a>
+                        <Link to="/collection/user_statuses/:uid">MyPosts</Link>
                     </li>
                     <li>
-                        <a href="#">Collects</a>
+                        <Link to="/collection/collected_statuses/:uid">Collects</Link>
                     </li>
                 </ul>
             </div>
             <div className="col-lg-5 ml-auto col-md-5">
                 <ul className="profile-menu">
                     <li>
-                        <a href="#">Followers</a>
+                        <Link to="/follow/followings/:uid">Followers</Link>
                     </li>
                     <li>
-                        <a href="#">Follows</a>
+                        <Link to="/follow/follows/:uid">Follows</Link>
                     </li>
                 </ul>
             </div>

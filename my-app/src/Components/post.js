@@ -6,10 +6,10 @@ function PostInfo(props) {
     <div className="post__author author vcard inline-items">
       <img src="img/avatar3-sm.jpg" alt="author" />
       <div className="author-date">
-        <a className="h6 post__author-name fn" href="#">Sarah Hetfield</a>
+        <a className="h6 post__author-name fn" href="#">{props.author}</a>
         <div className="post__date">
           <time className="published" dateTime="2004-07-24T18:18">
-            March 2 at 9:06am
+            {props.time}
             </time>
         </div>
       </div>
@@ -24,9 +24,7 @@ function PostContent(props) {
         <img style={{marginRight: "1rem"}} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
       </a>
       <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+        {props.content}
       </p>
     </div>
   )
@@ -37,12 +35,12 @@ function PostBottom(props) {
     <div className="post-additional-info inline-items">
       <a href="#" className="post-add-icon inline-items">
         <svg className="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
-        <span>0 Likes</span>
+        <span>{props.likes} Likes</span>
       </a>
       <div className="comments-shared">
         <a data-toggle="collapse" href="#Comments" className="post-add-icon inline-items" role="button" aria-expanded="false" aria-controls="Comments">
           <svg className="olymp-speech-balloon-icon"><use xlinkHref="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
-          <span>0 Comments</span>
+          <span>{props.comments} Comments</span>
         </a>
       </div>
     </div>
@@ -148,14 +146,20 @@ function CommentForm(props) {
 
 const tags = ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "very long tag", "very long tag","very long tag", "very long tag", "very long tag", "very long tag", "very long tag"]
 
+
 class Post extends Component {
+    constructor (props) {
+      super(props)
+      this.state = {author: "", time: "", content: "No Content", likes: "0", comments: "0"}
+    }
+
     render() {
     return (
       <div className="ui-block">
         <article className="hentry post has-post-thumbnail">
-          <PostInfo />
-          <PostContent />
-          <PostBottom />
+          <PostInfo author={this.state.author} time={this.state.time} />
+          <PostContent content={this.state.content}/>
+          <PostBottom likes={this.state.likes} comments={this.state.comments} />
           <PostSideButton />
           <br />
           <Tag tags={tags}/>

@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route} from 'react-router-dom'
 
 function Title(props) {
     return (
@@ -99,7 +100,7 @@ function Author(props) {
                             <li>
                                 <a href="#">
                                     <svg className="olymp-menu-icon"><use xlinkHref="icons/icons.svg#olymp-menu-icon"></use></svg>
-                                    <span>Profile Settings</span>
+                                    <span><Link to="/profile">Profile Settings</Link></span>
                                 </a>
                             </li>
                             <li>
