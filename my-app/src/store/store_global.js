@@ -2,12 +2,11 @@ import { observable, action } from 'mobx';
 import {get_status} from '../api/api';
 
 const GlobalStore = observable( {
-    notification: [],
-    avatars: [],
-    user_name: "",
-    user_id: "",
-    login: false,
-    login_token: ""
+    notification: [{"username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented"}, {"username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented"}],
+    accounts: {"username": "Min Tian", 
+                "avatar": "/img/author-page.jpg",
+                "following_count": 87,
+                "followers_count": 96},
 } );
 
 export default GlobalStore;

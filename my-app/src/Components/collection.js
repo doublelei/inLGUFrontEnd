@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import NavBar from './nav.js';
 import Post from './post.js';
 import Head from './head.js'
-
+import { observable, autorun, action, decorate } from "mobx";
+import { inject } from 'mobx-react';
 
 function LoadMore(props) {
     return (
@@ -15,28 +16,26 @@ function LoadMore(props) {
     )
 }
 
-class Postcollections extends Component {
+class _MyPost extends Component {
     render() {
         return (
             <body>
-                <NavBar />
+                <NavBar {...this.props.GlobalStore} />
                 <div className="header-spacer"></div>
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <Head />
+                            <Head {...this.props.GlobalStore.accounts} />
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
                         <main className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <Post />
-                            <Post />
+                            {this.props.MyPostStore.status_left.map((status) => <Post {...status}/>)}
                         </main>
                         <main className="col-xl-6 col-lg-12 col-md- col-sm-12 col-xs-12">
-                            <Post />
-                            <Post />
+                            {this.props.MyPostStore.status_right.map((status) => <Post {...status}/>)}
                         </main>
 
                     </div>
@@ -46,4 +45,36 @@ class Postcollections extends Component {
     }
 }
 
-export default Postcollections;
+class _Collections extends Component {
+    render() {
+        return (
+            <body>
+                <NavBar {...this.props.GlobalStore} />
+                <div className="header-spacer"></div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <Head {...this.props.GlobalStore.accounts} />
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <main className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {this.props.CollectionStore.status_left.map((status) => <Post {...status}/>)}
+                        </main>
+                        <main className="col-xl-6 col-lg-12 col-md- col-sm-12 col-xs-12">
+                            {this.props.CollectionStore.status_right.map((status) => <Post {...status}/>)}
+                        </main>
+
+                    </div>
+                </div>
+            </body>
+        );
+    }
+}
+
+const MyPost = inject('MyPostStore', 'GlobalStore')(_MyPost)
+const Collections = inject('CollectionStore', 'GlobalStore')(_Collections)
+
+export { MyPost, Collections };

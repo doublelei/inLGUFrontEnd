@@ -5,7 +5,7 @@ import FollowerStore from './store_follower'
 import GlobalStore from './store_global'
 import MyPostStore from './store_mypost'
 
-export const stores = {
+export const Stores = {
     HomepageStore,
     CollectionStore,
     FollowStore,
@@ -13,3 +13,5 @@ export const stores = {
     GlobalStore,
     MyPostStore,
 }
+
+export default Stores;

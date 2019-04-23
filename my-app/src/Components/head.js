@@ -8,23 +8,23 @@ function Section(props) {
             <div className="col-lg-5 col-md-5 ">
                 <ul className="profile-menu">
                     <li>
-                        <Link to="/:uid">Homepage</Link>
+                        <Link to="/">Homepage</Link>
                     </li>
                     <li>
-                        <Link to="/collection/user_statuses/:uid">MyPosts</Link>
+                        <Link to="/mypost">MyPosts</Link>
                     </li>
                     <li>
-                        <Link to="/collection/collected_statuses/:uid">Collects</Link>
+                        <Link to="/collection">Collects</Link>
                     </li>
                 </ul>
             </div>
             <div className="col-lg-5 ml-auto col-md-5">
                 <ul className="profile-menu">
                     <li>
-                        <Link to="/follow/followings/:uid">Followers</Link>
+                        <Link to="/follower">Followers</Link>
                     </li>
                     <li>
-                        <Link to="/follow/follows/:uid">Follows</Link>
+                        <Link to="/follow">Follows</Link>
                     </li>
                 </ul>
             </div>
@@ -38,7 +38,7 @@ function Author(props) {
             <img src={props.avatar} alt="author" />
         </a>
         <div className="author-content">
-            <a href="#" className="h4 author-name">{props.name}</a>
+            <a href="#" className="h4 author-name">{props.username}</a>
         </div>
     </div>
     )
@@ -50,7 +50,7 @@ class Head extends Component {
             <div className="ui-block">
                 <div className="top-header">
                     <Section />
-                    <Author avatar="img/author-main1.jpg" name="James Spiegel" />
+                    <Author {...this.props} />
                 </div>
             </div>
         );

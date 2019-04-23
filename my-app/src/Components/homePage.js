@@ -10,7 +10,8 @@ import Calendar from './calendar.js'
 import Head from './head.js'
 import Hottags from "./hottag.js"
 import ActivityFeed from "./activityfeed.js"
-import {observable, autorun, action} from "mobx";
+import {observable, autorun, action, decorate} from "mobx";
+import { inject } from 'mobx-react';
 
 function LoadMore(props) {
     return (
@@ -27,27 +28,25 @@ const posts=observable([
     {author: "Brando", time: "2028-08-21", content: "kkkkkkkkkkkkk", likes: "112", comments: "213"}
   ])
 
-class Homepage extends Component {
+class _Homepage extends Component {
     render() {
         return (
             <div>
-                <NavBar />
+                <NavBar {...this.props.GlobalStore}/>
                 <div className="header-spacer"></div>
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <Head />
+                            <Head {...this.props.GlobalStore.accounts}/>
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
                         <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
-                            <NewPost />
+                            <NewPost {...this.props.GlobalStore.accounts}/>
                             <div id="newsfeed-items-grid">
-                                <Post props={posts[0]} />
-                                <Post />
-                                <Poll />
+                                {this.props.HomepageStore.status_list.map((status) => <Post {...status}/>)}
                             </div>
                             <LoadMore />
                         </main>
@@ -58,16 +57,17 @@ class Homepage extends Component {
                         </aside>
 
                         <aside className="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
-                            <Hottags />
-                            <ActivityFeed />
+                            <Hottags hot_tag={this.props.HomepageStore.hot_tag}/>
+                            <ActivityFeed {...this.props.HomepageStore}/>
                         </aside>
                     </div>
                 </div>
-
                 <Modals />
             </div>
         );
     }
 }
+
+const Homepage = inject('HomepageStore', 'GlobalStore')(_Homepage)
 
 export default Homepage;
