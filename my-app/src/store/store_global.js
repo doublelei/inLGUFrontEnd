@@ -27,8 +27,7 @@ class GlobalStore {
 decorate(GlobalStore, {
     notification: observable,
     accounts: observable,
-    test: observable,
-    getCurrentUser: action
+    test: observable
 })
 
 export default GlobalStore;
