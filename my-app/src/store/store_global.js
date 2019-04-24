@@ -7,8 +7,9 @@ const GlobalStore = observable( {
                 "avatar": "/img/author-page.jpg",
                 "following_count": 87,
                 "followers_count": 96},
+    test: {},
     async getCurrentUser() {
-        this.accounts = await get_current_user();
+        this.test = await get_current_user();
     }
 } );
 

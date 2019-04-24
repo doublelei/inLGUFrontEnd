@@ -30,6 +30,10 @@ const posts=observable([
   ])
 
 class _Homepage extends Component {
+    componentDidMount(){
+        this.props.GlobalStore.getCurrentUser();
+    }
+
     render() {
         return (
             <div>
@@ -61,7 +65,7 @@ class _Homepage extends Component {
                                 console.log("failed!")
                             })} }>Axios Test Button</a>
 
-                            <a className="btn btn-secondary">Get User Info</a>
+                            <p>{JSON.stringify(this.props.GlobalStore.test)}</p>
 
                             <Weather info={this.props.HomepageStore}/>
                             <Calendar />

@@ -7,10 +7,7 @@ import { toast } from 'react-toastify'
 var MockAdapter = require('axios-mock-adapter');
 var mock = new MockAdapter(axios);
 mock.onGet('/current_user').reply(200, {
-    "username": "Leo", 
-    "avatar": "/img/author-page.jpg",
-    "following_count": 233,
-    "followers_count": 998}
+    "username": "Leo"}
     );
   
 // CONFIG ----------------------------------------------------------------------
@@ -65,6 +62,7 @@ axios.interceptors.response.use(
 export function get_current_user (url = '/current_user') {
     return axios.get(url)
       .then(response => {
+            console.log(response.data)
             return response.data})
       .catch(error => {
             console.log(error.response.data.message)
