@@ -11,8 +11,7 @@ import Head from './head.js'
 import Hottags from "./hottag.js"
 import ActivityFeed from "./activityfeed.js"
 import { observable, autorun, action, decorate } from "mobx";
-import { observer } from "mobx-react";
-import { inject } from 'mobx-react';
+import { observer, inject } from "mobx-react";
 import axios from "axios"
 
 
@@ -33,9 +32,9 @@ const posts = observable([
 ])
 
 class _Homepage extends Component {
-
-    componentWillMount() {
-        this.props.GlobalStore.getCurrentUser();
+    componentWillMount(){
+        this.props.HomepageStore.timelinesPublic();
+        this.props.HomepageStore.getHotTags();
     }
 
     render() {
@@ -54,7 +53,7 @@ class _Homepage extends Component {
                 <div className="container">
                     <div className="row">
                         <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
-                            <NewPost {...this.props.GlobalStore.accounts} />
+                            <NewPost {...this.props} />
                             <div id="newsfeed-items-grid">
                                 {this.props.HomepageStore.status_list.map((status) => <Post {...status}/>)}
                             </div>
