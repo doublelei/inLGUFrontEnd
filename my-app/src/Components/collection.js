@@ -5,6 +5,7 @@ import Post from './post.js';
 import Head from './head.js'
 import { observable, autorun, action, decorate } from "mobx";
 import { inject } from 'mobx-react';
+import { observer } from "mobx-react";
 
 function LoadMore(props) {
     return (
@@ -62,7 +63,7 @@ class _Collections extends Component {
     }
 }
 
-const MyPost = inject('MyPostStore', 'GlobalStore')(_MyPost)
-const Collections = inject('CollectionStore', 'GlobalStore')(_Collections)
+const MyPost = inject('MyPostStore', 'GlobalStore')(observer(_MyPost))
+const Collections = inject('CollectionStore', 'GlobalStore')(observer(_Collections))
 
 export { MyPost, Collections };
