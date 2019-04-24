@@ -1,6 +1,8 @@
 import URL from './url'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+
+const basicURL = '10.30.176.243:5000/api/v1'
 //import Store from
 
 // MOCKDATA ------------------------------------------------------------------------------
@@ -57,15 +59,6 @@ axios.interceptors.response.use(
         }
     }
 );
-
-
-// MOCK TEST
-export function get_current_user(url = './current_user') {
-    return fetch(url, { credentials: 'same-origin' })
-        .then(response => {
-            return response.json()
-        })
-}
 
 
 // STATUS ----------------------------------------------------------------------
@@ -131,5 +124,15 @@ export function get_weather() {
         .catch(error => {
             console.log(error.response.data.message)
             toast.warn("An Error Occured")
+        })
+}
+
+export function get_following(id, url = URL.get_following, params = {}) {
+    url = url.replace('basicURL', '10.30.176.243:5000/api/v1').replace('<string:id>', id)
+    return fetch(url)
+        .then(res => res.json())
+        .then((res) => {return res})
+        .catch(error => {
+            console.log("error.response.data.message")
         })
 }
