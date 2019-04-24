@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import {get_status} from '../api/api.js'
+import {get_status, get_weather} from '../api/api.js'
 
 const HomepageStore = observable( {
     status_list: [
@@ -12,12 +12,15 @@ const HomepageStore = observable( {
     hot_tag: ["hot_tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "very long tag", "very long tag", "very long tag", "very long tag", "very long tag", "very long tag", "very long tag"],
     activity_feed: [{"avatar": "img/avatar49-sm.jpg", "name": "Marina Polson", "action":"commented", "targetname":"Jason Mark"}, {"avatar": "img/avatar49-sm.jpg", "name": "Marina Polson", "action":"commented", "targetname":"Jason Mark"}],
     notification: [],
-    
+    weather_info:{},
     async getStatusList() {
         this.status_list = await get_status(undefined, {id: "string"});
     },
     async getComments(statusId) {
         this.status_list[statusId['comments']] = await get_status(undefined, {id: statusId});
+    },
+    getWeather() {
+        this.weather_info = get_weather();
     }
 } );
 

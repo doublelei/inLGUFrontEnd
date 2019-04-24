@@ -12,6 +12,7 @@ import Hottags from "./hottag.js"
 import ActivityFeed from "./activityfeed.js"
 import {observable, autorun, action, decorate} from "mobx";
 import { inject } from 'mobx-react';
+import axios from "axios"
 
 function LoadMore(props) {
     return (
@@ -52,7 +53,17 @@ class _Homepage extends Component {
                         </main>
 
                         <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
-                            <Weather />
+                            {/* Test Button */}
+                            <a className="btn btn-primary" onClick={function getTest(){axios.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8922ef9543099eda43742e0bfa5434f7')
+                            .then(response => {
+                                console.log("success!")})
+                            .catch(error => {
+                                console.log("failed!")
+                            })} }>Axios Test Button</a>
+
+                            <a className="btn btn-secondary">Get User Info</a>
+
+                            <Weather info={this.props.HomepageStore}/>
                             <Calendar />
                         </aside>
 

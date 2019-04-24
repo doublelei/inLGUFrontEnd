@@ -11,7 +11,7 @@ export const Stores = {
     FollowStore,
     FollowerStore,
     GlobalStore,
-    MyPostStore,
+    MyPostStore
 }
 
 export default Stores;

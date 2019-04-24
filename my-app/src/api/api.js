@@ -1,9 +1,18 @@
 import URL from './url'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-
 //import Store from
 
+// MOCKDATA ------------------------------------------------------------------------------
+var MockAdapter = require('axios-mock-adapter');
+var mock = new MockAdapter(axios);
+mock.onGet('/current_user').reply(200, {
+    "username": "Leo", 
+    "avatar": "/img/author-page.jpg",
+    "following_count": 233,
+    "followers_count": 998}
+    );
+  
 // CONFIG ----------------------------------------------------------------------
 axios.defaults.timeout = 10000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -51,12 +60,25 @@ axios.interceptors.response.use(
     }    
 );
 
+
+// MOCK TEST
+export function get_current_user (url = '/current_user') {
+    return axios.get(url)
+      .then(response => {
+            return response.data})
+      .catch(error => {
+            console.log(error.response.data.message)
+        })
+}
+
 // STATUS ----------------------------------------------------------------------
 export function get_status (url = URL.get_status, params = {}) {
     return axios.get(url, params)
       .then(response => {
+            console.log("succeed")
             return response.data})
       .catch(error => {
+            console.log("failed")
             console.log(error.response.data.message)
         })
 }
@@ -95,4 +117,16 @@ export function mpost (url, params = {}) {
         .catch(error => {
             console.log(error.response.data.message)
         })
+}
+
+export function get_weather(){
+    return axios.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8922ef9543099eda43742e0bfa5434f7')
+    .then(response => {
+        console.log(response)
+        toast.success("Succeed")
+        return response.data})
+    .catch(error => {
+        console.log(error.response.data.message)
+        toast.warn("An Error Occured")
+    })
 }
