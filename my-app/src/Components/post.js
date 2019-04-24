@@ -73,27 +73,74 @@ function Tag(props) {
   </div>)
 }
 
-function CommentList(props) {
-  const comments = props.comments.map((comment) => <li>
-        <div className="post__author author vcard inline-items">
-          <img alt="author" src="img/author-page.jpg" />
-          <div className="author-date">
-            <a className="h6 post__author-name fn" href="02-ProfilePage.html">{comment.account.username}</a>
-            <div className="post__date">
-              <time className="published" dateTime="2004-07-24T18:18">
-                {comment.created_at}
-          </time>
-            </div>
+function CommentWithChildren(props) {
+  const children = props.chidren.map((child) => <Comment {...child}></Comment>)
+  return (
+    <li className="has-children">
+      <div className="post__author author vcard inline-items">
+        <img alt="author" src="img/author-page.jpg" />
+        <div className="author-date">
+          <a className="h6 post__author-name fn" href="02-ProfilePage.html">{props.account.username}</a>
+          <div className="post__date">
+            <time className="published" dateTime="2004-07-24T18:18">
+              {props.created_at}
+            </time>
           </div>
-          <a className="more" href="#"><svg xmlns="http://www.w3.org/2000/svg" className="olymp-three-dots-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-three-dots-icon" /></svg></a>
         </div>
-        <p>{comment.content}</p>
-        <a className="post-add-icon inline-items" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" className="olymp-heart-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-heart-icon" /></svg>
-          <span>{comment.likes_count}</span>
-        </a>
-        <a className="reply" href="#">Reply</a>
-      </li>);
+        <a className="more" href="#"><svg xmlns="http://www.w3.org/2000/svg" className="olymp-three-dots-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-three-dots-icon" /></svg></a>
+      </div>
+      <p>{props.content}</p>
+      <a className="post-add-icon inline-items" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" className="olymp-heart-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-heart-icon" /></svg>
+        <span>{props.likes_count}</span>
+      </a>
+      <a className="reply" href="#">Reply</a>
+      <ul className="children">
+        {children}
+      </ul>
+    </li>
+  )
+}
+
+function CommentWithoutChildren(props) {
+  return (
+    <li>
+      <div className="post__author author vcard inline-items">
+        <img alt="author" src="img/author-page.jpg" />
+        <div className="author-date">
+          <a className="h6 post__author-name fn" href="02-ProfilePage.html">{props.account.username}</a>
+          <div className="post__date">
+            <time className="published" dateTime="2004-07-24T18:18">
+              {props.created_at}
+            </time>
+          </div>
+        </div>
+        <a className="more" href="#"><svg xmlns="http://www.w3.org/2000/svg" className="olymp-three-dots-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-three-dots-icon" /></svg></a>
+      </div>
+      <p>{props.content}</p>
+      <a className="post-add-icon inline-items" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" className="olymp-heart-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="icons/icons.svg#olymp-heart-icon" /></svg>
+        <span>{props.likes_count}</span>
+      </a>
+      <a className="reply" href="#">Reply</a>
+    </li>
+  )
+}
+
+function Comment(props) {
+  if (props.replies_count > 0) {
+    return (
+      <CommentWithChildren {...props}></CommentWithChildren>
+    )
+  } else {
+    return (
+      <CommentWithoutChildren {...props}></CommentWithoutChildren>
+    )
+  }
+}
+
+function CommentList(props) {
+  const comments = props.comments.map((comment) => <Comment {...comment}></Comment>);
   return (
     <ul className="comments-list">
       {comments}
@@ -136,12 +183,13 @@ class Post extends Component {
           <PostSideButton />
           <br />
           <Tag tags={this.props.tags} />
-          <div className="collapse" id="Comments">
-            <CommentList {...this.props}/>
-            <MoreComment />
-            <CommentForm />
-          </div>
         </article>
+        <div className="collapse" id="Comments">
+          <CommentList {...this.props} />
+          <MoreComment />
+          <CommentForm />
+        </div>
+
       </div>
     );
   }
