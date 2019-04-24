@@ -7,7 +7,7 @@ const homepagestore = new HomepageStore()
 function PostInfo(props) {
   return (
     <div className="post__author author vcard inline-items">
-      <img src={props.avatar} alt="author" />
+      <img class="img-responsive" src={props.avatar} alt="author" />
       <div className="author-date">
         <a className="h6 post__author-name fn" href="#">{props.username}</a>
         <div className="post__date">
@@ -24,7 +24,7 @@ function PostContent(props) {
   return (
     <div>
       <a href="#" data-target="#post-view-photo" data-toggle="modal">
-        <img style={{ marginRight: "1rem" }} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
+        <img class="img-responsive" style={{ marginRight: "1rem" }} className="rounded float-left" src="./img/last-photo8.jpg" alt="Pic Loading Failed" />
       </a>
       <p>
         {props.content}
@@ -86,7 +86,7 @@ function CommentWithChildren(props) {
   return (
     <li className="has-children">
       <div className="post__author author vcard inline-items">
-        <img alt="author" src="img/author-page.jpg" />
+        <img class="img-responsive" alt="author" src="img/author-page.jpg" />
         <div className="author-date">
           <a className="h6 post__author-name fn" href="02-ProfilePage.html">{props.account.username}</a>
           <div className="post__date">
@@ -114,7 +114,7 @@ function CommentWithoutChildren(props) {
   return (
     <li>
       <div className="post__author author vcard inline-items">
-        <img alt="author" src="img/author-page.jpg" />
+        <img class="img-responsive" alt="author" src="img/author-page.jpg" />
         <div className="author-date">
           <a className="h6 post__author-name fn" href="02-ProfilePage.html">{props.account.username}</a>
           <div className="post__date">
@@ -166,7 +166,7 @@ function CommentForm(props) {
   return (
     <form className="comment-form inline-items">
       <div className="post__author author vcard inline-items">
-        <img alt="author" src="img/author-page.jpg" />
+        <img class="img-responsive" alt="author" src="img/author-page.jpg" />
         <div className="form-group with-icon-right is-empty">
           <textarea className="form-control" placeholder defaultValue={""} />
           <div className="add-options-message">

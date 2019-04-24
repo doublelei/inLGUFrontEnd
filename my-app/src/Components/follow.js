@@ -35,7 +35,7 @@ function Friends(props) {
 
                         <div className="friend-avatar">
                             <div className="author-thumb">
-                                <img src={props.avatar} alt="author" />
+                                <img class="img-responsive" src={props.avatar} alt="author" />
                             </div>
                             <div className="author-content">
                                 <a href="#" className="h5 author-name">{props.username}</a>
@@ -73,7 +73,7 @@ class _Follow extends Component {
 
     componentWillMount() {
         this.props.GlobalStore.getCurrentUser();
-        this.props.FollowStore.getfollowing();
+        // this.props.FollowStore.getfollowing();
     }
     render() {
         return (
@@ -106,6 +106,10 @@ class _Follow extends Component {
 }
 
 class _Follower extends Component {
+    componentWillMount() {
+        this.props.GlobalStore.getCurrentUser();
+        // this.props.FollowerStore.getfollowing();
+    }
     render() {
         return (
             <body>

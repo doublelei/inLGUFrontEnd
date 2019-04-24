@@ -15,7 +15,6 @@ class GlobalStore {
         fetch(this.basicURL + "/accounts/" + this.accounts.id)
             .then(res => res.json())
             .then(data => {
-              console.log(data)
               this.accounts = data
             })
             .catch(e => console.log('错误:', e))

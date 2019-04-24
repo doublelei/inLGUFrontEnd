@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 function PostInfo(props) {
     return (
         <div className="post__author author vcard inline-items">
-            <img src="img/avatar3-sm.jpg" alt="author" />
+            <img class="img-responsive" src="img/avatar3-sm.jpg" alt="author" />
             <div className="author-date">
                 <a className="h6 post__author-name fn" href="#">Sarah Hetfield</a>
                 <div className="post__date">
@@ -63,7 +63,7 @@ function CommentList(props) {
         <ul className="comments-list">
             <li>
                 <div className="post__author author vcard inline-items">
-                    <img alt="author" src="img/author-page.jpg" />
+                    <img class="img-responsive" alt="author" src="img/author-page.jpg" />
                     <div className="author-date">
                         <a className="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
                         <div className="post__date">
@@ -83,7 +83,7 @@ function CommentList(props) {
             </li>
             <li>
                 <div className="post__author author vcard inline-items">
-                    <img alt="author" src="img/avatar1-sm.jpg" />
+                    <img class="img-responsive" alt="author" src="img/avatar1-sm.jpg" />
                     <div className="author-date">
                         <a className="h6 post__author-name fn" href="#">Mathilda Brinker</a>
                         <div className="post__date">
@@ -117,7 +117,7 @@ function CommentForm(props) {
     return (
         <form className="comment-form inline-items">
             <div className="post__author author vcard inline-items">
-                <img alt="author" src="img/author-page.jpg" />
+                <img class="img-responsive" alt="author" src="img/author-page.jpg" />
                 <div className="form-group with-icon-right is-empty">
                     <textarea className="form-control" placeholder defaultValue={""} />
                     <div className="add-options-message">
@@ -156,12 +156,12 @@ class Pollcontent extends Component {
                     <ul class="friends-harmonic">
                         <li>
                             <a href="#">
-                                <img src="img/friend-harmonic14.jpg" alt="friend" />
+                                <img class="img-responsive" class="img-responsive" src="img/friend-harmonic14.jpg" alt="friend" />
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="img/friend-harmonic15.jpg" alt="friend" />
+                                <img class="img-responsive" src="img/friend-harmonic15.jpg" alt="friend" />
                             </a>
                         </li>
                     </ul>
