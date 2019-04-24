@@ -1,7 +1,10 @@
 'use strict';
 import React, { Component } from 'react';
 import DropzoneComp from "./upload.js"
+import HomepageStore from '../store/store_homepage';
+import $ from 'jquery'
 
+const homepagestore = new HomepageStore()
 function PhotoUpload(props) {
     return (
         <div className="modal fade" id="update-header-photo" aria-hidden="true" style={{ display: 'none', position: "fixed", top: "30%" }}>
@@ -31,10 +34,10 @@ function AddTag(props) {
                 <div className="container">
                     <div className="row">
                         <div class="col-md-8">
-                            <input type="text" placeholder="#Tag" id="inputDefault" style={{paddingLeft:"5%", height:"60%"}}/>
+                            <input type="text" id="modal-input" placeholder="#Tag" style={{paddingLeft:"5%", height:"60%"}}/>
                         </div>
                         <div class="col-md-4" >
-                            <button type="button" class="btn btn-success" style={{paddingLeft:"5%", height:"60%"}}>Submit</button>
+                            <button type="button" class="btn btn-success" style={{paddingLeft:"5%", height:"60%"}} onClick={function addTagf(){console.log($('#modal-input').val());homepagestore.add_tag.status_id=homepagestore.modal_id; homepagestore.add_tag.tag_name=$('#modal-input').val();homepagestore.tagStatus()}}>Submit</button>
                         </div>
                     </div>
                 </div>

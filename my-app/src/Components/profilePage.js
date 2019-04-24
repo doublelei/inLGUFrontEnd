@@ -1,7 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
-import Nav from './nav'
+import NavBar from './nav'
 import Settings from './settings.js'
+import { observer, inject } from "mobx-react";
 
 function r_SideMenu(props){
     return (
@@ -75,11 +76,11 @@ function r_SideMenu(props){
     )
 }
 
-class Profile extends Component {
+class _Profile extends Component {
     render() {
         return (
             <body>
-                <Nav />
+                <NavBar {...this.props.GlobalStore} />
                 <div className="header-spacer header-spacer-small" />
                 <r_SideMenu />
                 <Settings />
@@ -87,5 +88,7 @@ class Profile extends Component {
         );
     }
 }
+
+const Profile = inject('GlobalStore')(observer(_Profile))
 
 export default Profile

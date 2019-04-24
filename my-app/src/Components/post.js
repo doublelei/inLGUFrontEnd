@@ -1,5 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
+import HomepageStore from '../store/store_homepage';
+
+const homepagestore = new HomepageStore()
 
 function PostInfo(props) {
   return (
@@ -33,8 +36,9 @@ function PostContent(props) {
 function PostBottom(props) {
   return (
     <div className="post-additional-info inline-items">
-      <a href="#" className="post-add-icon inline-items">
-        <svg className="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon"></use></svg>
+      <a className="post-add-icon inline-items" onClick={function like_status(){homepagestore.like.status_id=props.status_id; homepagestore.likeStatus()}}>
+        <svg className="olymp-heart-icon"><use xlinkHref="icons/icons.svg#olymp-heart-icon">
+          </use></svg>
         <span>{props.likes} Likes</span>
       </a>
       <div className="comments-shared">
@@ -65,11 +69,15 @@ function PostSideButton(props) {
 
 function Tag(props) {
   const tags = props.tags.map((tag) =>
-    <span className="badge badge-pill badge-success" style={{ margin: "0px 2px 2px 2px", fontWeight: "400", fontSize: "100%" }} ><font color="#F8F8F8">{tag}</font>
-    </span>);
-  return (<div style={{ margin: "2px 2px 2px 2px" }}>
+    <a onClick={function showTagUnderStatus(){homepagestore.show_status_under_tag=tag; homepagestore.showStatusUnderTag()}}>
+      <span className="badge badge-pill badge-success" style={{ margin: "0px 2px 2px 2px", fontWeight: "400", fontSize: "100%" }} >
+        <font color="#F8F8F8">{tag}</font>
+      </span>
+    </a>);
+  return (
+  <div style={{ margin: "2px 2px 2px 2px" }}>
     {tags}
-    <button type="button" className="btn badge-pill badge-success" data-toggle="modal" data-target="#add-tag" style={{ marginBottom: "0", padding: ".15rem .4rem" }}>+</button>
+    <button type="button" className="btn badge-pill badge-success" data-toggle="modal" data-target="#add-tag" style={{ marginBottom: "0", padding: ".15rem .4rem" }} onClick={function changeModalID(){homepagestore.modal_id = props.status_id}}>+</button>
   </div>)
 }
 
@@ -150,7 +158,7 @@ function CommentList(props) {
 
 function MoreComment(props) {
   return (
-    <a className="more-comments" href="#">View more comments <span>+</span></a>
+    <a className="more-comments">View more comments <span>+</span></a>
   )
 }
 
@@ -179,10 +187,10 @@ class Post extends Component {
         <article className="hentry post has-post-thumbnail">
           <PostInfo avatar={this.props.account.avatar} username={this.props.account.username} created_at={this.props.created_at} />
           <PostContent content={this.props.content} />
-          <PostBottom likes={this.props.likes_count} comments={this.props.replies_count} />
+          <PostBottom likes={this.props.likes_count} comments={this.props.replies_count} status_id={this.props.status_id}/>
           <PostSideButton />
           <br />
-          <Tag tags={this.props.tags} />
+          <Tag tags={this.props.tags} status_id={this.props.status_id}/>
         </article>
         <div className="collapse" id="Comments">
           <CommentList {...this.props} />
