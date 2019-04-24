@@ -38,6 +38,10 @@ class _Homepage extends Component {
         this.props.GlobalStore.getCurrentUser();
     }
 
+    componentDidMount() {
+        this.props.GlobalStore.getList();
+    }
+
     render() {
         return (
             <div>

@@ -2,6 +2,7 @@ import { observable, action, decorate } from 'mobx';
 import { get_current_user} from '../api/api.js'
 
 class GlobalStore {
+    basicURL = "10.30.176.243:5000/api/v1/"
     notification = [{ "username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented" }, { "username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented" }];
     accounts = {
         "username": "Min Tian",
