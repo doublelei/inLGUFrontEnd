@@ -14,7 +14,7 @@ function Search(props) {
     return (
         <form className="search-bar w-search notification-list friend-requests">
             <div className="form-group with-button is-empty">
-                <input className="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabindex="-1" value="" style={{ dispaly: "none" }} />
+                <input className="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabindex="-1" style={{ dispaly: "none" }} value=""  />
                 <div className="selectize-control form-control js-user-search multi">
                     <div className="selectize-input items not-full has-options">
                         <input type="text" autocomplete="off" tabindex="" placeholder="Search here people or pages..." style={{ width: "229.859px" }} />

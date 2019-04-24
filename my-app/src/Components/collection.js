@@ -31,13 +31,7 @@ class _MyPost extends Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <main className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            {this.props.MyPostStore.status_left.map((status) => <Post {...status}/>)}
-                        </main>
-                        <main className="col-xl-6 col-lg-12 col-md- col-sm-12 col-xs-12">
-                            {this.props.MyPostStore.status_right.map((status) => <Post {...status}/>)}
-                        </main>
-
+                        {this.props.MyPostStore.status_list.map((status) => <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12"><Post {...status} /></div>)}
                     </div>
                 </div>
             </body>
@@ -60,13 +54,7 @@ class _Collections extends Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <main className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            {this.props.CollectionStore.status_left.map((status) => <Post {...status}/>)}
-                        </main>
-                        <main className="col-xl-6 col-lg-12 col-md- col-sm-12 col-xs-12">
-                            {this.props.CollectionStore.status_right.map((status) => <Post {...status}/>)}
-                        </main>
-
+                        {this.props.CollectionStore.status_list.map((status) => <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12"><Post {...status} /></div>)}
                     </div>
                 </div>
             </body>
