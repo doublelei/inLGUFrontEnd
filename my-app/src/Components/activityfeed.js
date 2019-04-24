@@ -5,7 +5,7 @@ function Activity(props) {
     return (
         <li>
             <div className="author-thumb">
-                <img src={props.avatar} alt="author" />
+                <img class="img-responsive" src={props.avatar} alt="author" />
             </div>
             <div className="notification-event">
                 <a href="#" className="h6 notification-friend">{props.username}</a> {props.action} on {props.targetname}’s <a href="#" className="notification-link">post.</a>.

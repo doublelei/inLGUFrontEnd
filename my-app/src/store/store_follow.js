@@ -28,14 +28,16 @@ class FollowStore {
         fetch(globalstore.basicURL + "/accounts/" + globalstore.accounts.id + "/following")
         .then(res => res.json())
         .then(response => {
-            console.log("following")
-            console.log(response)
             this.accounts = response
         })
         .catch(error => {
             console.log("error.response.data.message")
         })
     }
+    follower() {
+        return
+    }
+
 }
 decorate(FollowStore, {
     accounts: observable,

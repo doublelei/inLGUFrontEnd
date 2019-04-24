@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 function NewPostAuthorThumb(props) {
     return (
         <div className="author-thumb">
-            <img alt="author" src={props.avatar} />
+            <img class="img-responsive" alt="author" src={props.avatar} />
         </div>
     )
 }

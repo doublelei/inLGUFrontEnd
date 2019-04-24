@@ -34,13 +34,10 @@ const posts = observable([
 
 class _Homepage extends Component {
 
-<<<<<<< HEAD
     componentWillMount() {
         this.props.GlobalStore.getCurrentUser();
     }
 
-=======
->>>>>>> b8025388e58a6f591068aca41f326fe6e75eec48
     render() {
         return (
             <div>
@@ -59,22 +56,13 @@ class _Homepage extends Component {
                         <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">
                             <NewPost {...this.props.GlobalStore.accounts} />
                             <div id="newsfeed-items-grid">
-                                {this.props.HomepageStore.status_list.map((status) => <Post {...status} />)}
+                                {this.props.HomepageStore.status_list.map((status) => <Post {...status}/>)}
                             </div>
                             <LoadMore />
                         </main>
 
                         <aside className="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
                             <Weather info={this.props.HomepageStore} />
-                            {/* <a className="btn btn-primary" onClick={
-                                function postnew(){
-                                    axios.post('10.30.176.243:5000/api/v1/statuses', {content: "Test", account_id: "c431dc96-114b-4fcc-9765-2e2678334685", language: "zh-cn", pinned: "False", anonymous: "False", reply_to_status_id: ""})
-                                .then(response => {
-                                    console.log(response)
-                                }).catch(error =>{
-                                    console.log(error)}
-                                )
-                                }}>New Post</a> */}
                             <Calendar />
                         </aside>
 

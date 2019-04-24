@@ -18,6 +18,11 @@ function LoadMore(props) {
 }
 
 class _MyPost extends Component {
+    componentWillMount() {
+        this.props.GlobalStore.getCurrentUser();
+        // this.props.MyPostStore.getmypost();
+    }
+
     render() {
         return (
             <body>
@@ -41,6 +46,10 @@ class _MyPost extends Component {
 }
 
 class _Collections extends Component {
+    componentWillMount() {
+        this.props.GlobalStore.getCurrentUser();
+        // this.props.CollectionStore.getcollection();
+    }
     render() {
         return (
             <body>
