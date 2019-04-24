@@ -10,7 +10,7 @@ import Calendar from './calendar.js'
 import Head from './head.js'
 import Hottags from "./hottag.js"
 import ActivityFeed from "./activityfeed.js"
-import { observable, autorun, action, decorate} from "mobx";
+import { observable, autorun, action, decorate } from "mobx";
 import { observer } from "mobx-react";
 import { inject } from 'mobx-react';
 import axios from "axios"
@@ -50,6 +50,7 @@ class _Homepage extends Component {
                         </div>
                     </div>
                 </div>
+                <div> {this.props.GlobalStore.test} </div>
                 <div className="container">
                     <div className="row">
                         <main className="col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-xs-12">

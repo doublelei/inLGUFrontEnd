@@ -70,6 +70,11 @@ function Friends(props) {
 }
 
 class _Follow extends Component {
+
+    componentWillMount() {
+        this.props.GlobalStore.getCurrentUser();
+        this.props.FollowStore.getfollowing();
+    }
     render() {
         return (
             <body>

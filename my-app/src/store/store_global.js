@@ -7,17 +7,17 @@ class GlobalStore {
         "username": "Min Tian",
         "avatar": "/img/author-page.jpg",
         "following_count": 87,
-        "followers_count": 96
+        "followers_count": 96,
+        "id" : "c431dc96-114b-4fcc-9765-2e2678334685"
     };
-    test = 0;
     getCurrentUser() {
         fetch(
-            'https://www.easy-mock.com/mock/59801fd8a1d30433d84f198c/example/user/all'
+            'http://10.30.176.243:5000/api/v1/accounts/c431dc96-114b-4fcc-9765-2e2678334685'
           )
             .then(res => res.json())
             .then(data => {
-              console.log(data[0].id)
-              this.test = data[0].id
+              console.log(data)
+              this.accounts = data
             })
             .catch(e => console.log('错误:', e))
     }
