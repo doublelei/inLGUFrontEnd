@@ -5,6 +5,7 @@ import Head from './head.js'
 import Modals from './modal.js'
 import { observable, autorun, action, decorate } from "mobx";
 import { inject } from 'mobx-react';
+import { observer } from "mobx-react";
 
 function Searchfriend(props) {
     return (
@@ -130,7 +131,7 @@ class _Follower extends Component {
     }
 }
 
-const Follow = inject('FollowStore', 'GlobalStore')(_Follow)
-const Follower = inject('FollowerStore', 'GlobalStore')(_Follower)
+const Follow = inject('FollowStore', 'GlobalStore')(observer(_Follow))
+const Follower = inject('FollowerStore', 'GlobalStore')(observer(_Follower))
 
 export { Follow, Follower };

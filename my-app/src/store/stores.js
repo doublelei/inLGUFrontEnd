@@ -6,12 +6,12 @@ import GlobalStore from './store_global'
 import MyPostStore from './store_mypost'
 
 export const Stores = {
-    HomepageStore,
-    CollectionStore,
-    FollowStore,
-    FollowerStore,
-    GlobalStore,
-    MyPostStore
+    HomepageStore: new HomepageStore(),
+    CollectionStore: new CollectionStore(),
+    FollowStore: new FollowStore(),
+    FollowerStore: new FollowerStore(),
+    GlobalStore: new GlobalStore(),
+    MyPostStore: new MyPostStore()
 }
 
 export default Stores;
