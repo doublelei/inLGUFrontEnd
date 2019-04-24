@@ -1,63 +1,65 @@
+const baseURL = '10.30.176.243:5000/api/v1'
+
 const URL ={
     //ACCOUNTS ------------------------------------------------
-    get_account_info: '/accounts/<string:id>',
+    get_account_info: baseURL + baseURL + '/accounts/<string:id>',
 
-    get_accounts: '/accounts',
+    get_accounts: baseURL + '/accounts',
 
-    verify_credential: '/accounts/verify_credentials',
+    verify_credential: baseURL + '/accounts/verify_credentials',
 
-    update_credential: '/accounts/update_credentials',
+    update_credential: baseURL + '/accounts/update_credentials',
 
-    get_followers: '/accounts/<string:id>/followers',
+    get_followers: baseURL + '/accounts/<string:id>/followers',
 
-    get_following: '/accounts/<string:id>/following',
+    get_following: baseURL + '/accounts/<string:id>/following',
 
-    get_statuses: '/accounts/<string:id>/statuses',
+    get_statuses: baseURL + '/accounts/<string:id>/statuses',
 
-    follow: '/accounts/<string:id>/follow',
+    follow: baseURL + '/accounts/<string:id>/follow',
 
-    unfollow: '/accounts/<string:id>/unfollow',
+    unfollow: baseURL + '/accounts/<string:id>/unfollow',
 
-    get_relationship: '/accounts/relationships',
+    get_relationship: baseURL + '/accounts/relationships',
 
-    account_search: '/accounts/search',
+    account_search: baseURL + '/accounts/search',
 
-    get_avatar: '/avatars/<path:filename>',
+    get_avatar: baseURL + '/avatars/<path:filename>',
 
     // ATTACHMENT ------------------------------------------------
-    get_status_file: '/attachments/<path:filename>',
+    get_status_file: baseURL + '/attachments/<path:filename>',
 
-    attach_status_file: '/attachments/add',
+    attach_status_file: baseURL + '/attachments/add',
 
     // COLLECT ------------------------------------------------
-    get_collections: '/collections',
+    get_collections: baseURL + '/collections',
     /*
     Statuses the user has collected.
     :return: List of Statuses.
     */
-    collects: '/statuses/<string:id>/collect',
+    collects: baseURL + '/statuses/<string:id>/collect',
     /*
     Collect a status.
     :param id: status id.
     :return: Status.
     */
-    uncollects: '/statuses/<string:id>/uncollect',
+    uncollects: baseURL + '/statuses/<string:id>/uncollect',
 
     // POLLS ------------------------------------------------
-    get_polls: '/polls/<string:id>',
+    get_polls: baseURL + '/polls/<string:id>',
     /*
     :param id: Given poll's id.
     :return: Poll.
     */
 
-    vote_poll: '/polls/<string:id>/votes',
+    vote_poll: baseURL + '/polls/<string:id>/votes',
     /*
     Vote on a poll.
     :param id: Given poll's id.
     :return: Poll.
     */
 
-    export_poll: '/polls/<string:id>/export',
+    export_poll: baseURL + '/polls/<string:id>/export',
     /*
     Export a poll result.
     :param id:
@@ -65,14 +67,14 @@ const URL ={
     */
 
     // STATUS ------------------------------------------------
-    get_status: '/statuses/<string:id>',
+    get_status: baseURL + '/statuses/<string:id>',
     /*
     Get status object.
     :param id: given status' id.
     :return: Status.
     */
 
-    get_status_context: '/statuses/<string:id>/context',
+    get_status_context: baseURL + '/statuses/<string:id>/context',
     /*
     What the status replies to, and replies to it.
     :param id: given status' id.
@@ -82,21 +84,21 @@ const URL ={
     */
 
     // TAGS ------------------------------------------------
-    get_tag: '/tags/<string:name>',
+    get_tag: baseURL + '/tags/<string:name>',
     /*
     Get information of this tag.
     :param name: tag's name.
     :return: Tag.
     */
 
-    tag_status: '/statuses/<string:id>/tag/new',
+    tag_status: baseURL + '/statuses/<string:id>/tag/new',
     /*
     Tag a given status.
     :param id: status id.
     :return: Status.
     */
 
-    remove_tag_status: '/status/<string:id>/tag/remove',
+    remove_tag_status: baseURL + '/status/<string:id>/tag/remove',
     /*
     Remove a tag from the given status.
     :param id: status id.

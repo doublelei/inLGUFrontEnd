@@ -1,6 +1,4 @@
 import { observable, action, decorate } from 'mobx';
-import { get_status, get_weather } from '../api/api.js'
-
 class HomepageStore {
     status_list = [
         {
@@ -19,15 +17,7 @@ class HomepageStore {
     activity_feed = [{ "avatar": "img/avatar49-sm.jpg", "name": "Marina Polson", "action": "commented", "targetname": "Jason Mark" }, { "avatar": "img/avatar49-sm.jpg", "name": "Marina Polson", "action": "commented", "targetname": "Jason Mark" }];
     notification = [];
     weather_info = {};
-    async getStatusList() {
-        this.status_list = await get_status(undefined, { id: "string" });
-    };
-    async getComments(statusId) {
-        this.status_list[statusId['comments']] = await get_status(undefined, { id: statusId });
-    };
-    getWeather() {
-        this.weather_info = get_weather();
-    }
+    
 }
 
 decorate(HomepageStore, {
@@ -35,10 +25,7 @@ decorate(HomepageStore, {
     hot_tag: observable,
     activity_feed: observable,
     notification: observable,
-    weather_info: observable,
-    getStatusList: action,
-    getComments: action,
-    getWeather: action
+    weather_info: observable
 })
 
 export default HomepageStore;

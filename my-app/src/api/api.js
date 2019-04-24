@@ -60,7 +60,7 @@ axios.interceptors.response.use(
 
 
 // MOCK TEST
-export function get_current_user(url = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8922ef9543099eda43742e0bfa5434f7') {
+export function get_current_user(url = './current_user') {
     return fetch(url, { credentials: 'same-origin' })
         .then(response => {
             return response.json()
