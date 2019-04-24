@@ -1,5 +1,4 @@
 import { observable, action, decorate } from 'mobx';
-import { get_following } from '../api/api.js'
 import GlobalStore from './store_global'
 
 const globalstore = new GlobalStore()
@@ -26,7 +25,7 @@ class FollowStore {
         "statuses_count": "30"
     }];
     getfollowing() {
-        fetch('http://10.30.176.243:5000/api/v1/accounts/c431dc96-114b-4fcc-9765-2e2678334685/following')
+        fetch(globalstore.basicURL + "/accounts/" + globalstore.accounts.id + "/following")
         .then(res => res.json())
         .then(response => {
             console.log("following")
