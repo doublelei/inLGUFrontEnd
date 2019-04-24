@@ -34,6 +34,10 @@ class _Homepage extends Component {
         this.props.GlobalStore.getCurrentUser();
     }
 
+    componentDidMount() {
+        this.props.GlobalStore.getList();
+    }
+
     render() {
         return (
             <div>
@@ -66,6 +70,7 @@ class _Homepage extends Component {
                             })} }>Axios Test Button</a>
 
                             <p>{JSON.stringify(this.props.GlobalStore.test)}</p>
+                            <p>{JSON.stringify(this.props.GlobalStore.list)}</p>
 
                             <Weather info={this.props.HomepageStore}/>
                             <Calendar />

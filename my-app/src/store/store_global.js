@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import { get_current_user} from '../api/api.js'
+import API from '../api/api.js'
 
 const GlobalStore = observable( {
     notification: [{"username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented"}, {"username": "Min Tian", "avatar": "/img/author-page.jpg", "time": "4 hours ago", "action": "commented"}],
@@ -8,8 +8,12 @@ const GlobalStore = observable( {
                 "following_count": 87,
                 "followers_count": 96},
     test: {},
-    async getCurrentUser() {
-        this.test = await get_current_user();
+    list: [],
+    async getCurrentUser(){
+        this.test = await API.get_current_user();
+    },
+    async getList(){
+        this.list = await API.getList();
     }
 } );
 

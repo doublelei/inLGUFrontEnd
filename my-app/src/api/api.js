@@ -9,7 +9,7 @@ var mock = new MockAdapter(axios);
 mock.onGet('/current_user').reply(200, {
     "username": "Leo"}
     );
-  
+
 // CONFIG ----------------------------------------------------------------------
 axios.defaults.timeout = 10000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -59,15 +59,21 @@ axios.interceptors.response.use(
 
 
 // MOCK TEST
-export function get_current_user (url = '/current_user') {
-    return axios.get(url)
+export default {async get_current_user (url = '/current_user') {
+    return await (axios.get(url)
       .then(response => {
             console.log(response.data)
             return response.data})
       .catch(error => {
             console.log(error.response.data.message)
         })
+    )
+},
+async getList(){
+    return await axios.get( 'http://lemonof.com:82/api/getList' ).then( ( res ) => res.data.data );
 }
+}
+
 
 // STATUS ----------------------------------------------------------------------
 export function get_status (url = URL.get_status, params = {}) {
