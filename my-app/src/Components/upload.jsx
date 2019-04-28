@@ -6,7 +6,6 @@ export default class DropzoneComp extends React.Component {
         this.state = {
             files: []
         }
-
         this.handleDrop = this.handleDrop.bind(this);
     }
     handleDrop(acceptFile, rejectFile) {

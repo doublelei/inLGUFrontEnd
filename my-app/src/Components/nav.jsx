@@ -14,7 +14,7 @@ function Search(props) {
     return (
         <form className="search-bar w-search notification-list friend-requests">
             <div className="form-group with-button is-empty">
-                <input className="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabindex="-1" style={{ dispaly: "none" }} value=""  />
+                <input className="form-control js-user-search selectized" placeholder="Search here people or pages..." type="text" tabIndex="-1" style={{ dispaly: "none" }} value="" />
                 <div className="selectize-control form-control js-user-search multi">
                     <div className="selectize-input items not-full has-options">
                         <input type="text" autocomplete="off" tabindex="" placeholder="Search here people or pages..." style={{ width: "229.859px" }} />
@@ -89,7 +89,7 @@ function Author(props) {
     return (
         <div className="author-page author vcard inline-items more">
             <div className="author-thumb">
-                <img class="img-responsive" alt="author" src={props.avatar} className="avatar" />
+                <img className="avatar img-responsive" alt="author" src={props.avatar} style={{width:"36px", height:"36px"}}/>
                 <span className="icon-status online"></span>
                 <div className="more-dropdown more-with-triangle">
                     <div className="mCustomScrollbar ps ps--theme_default" data-mcs-theme="dark" data-ps-id="159c809c-36e9-fa65-ea20-01a26d50da7d">
@@ -168,10 +168,8 @@ class NavBar extends Component {
                     <div className="control-block">
                         <Notifications {...this.props} />
                         <Author {...this.props.accounts} />
-
                     </div>
                 </div>
-
             </header>
         )
     }

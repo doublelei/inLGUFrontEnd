@@ -1,8 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
-import NavBar from './nav.js';
-import Post from './post.js';
-import Head from './head.js'
+import NavBar from './nav';
+import Post from './post';
+import Head from './head';
 import { observable, autorun, action, decorate } from "mobx";
 import { inject } from 'mobx-react';
 import { observer } from "mobx-react";

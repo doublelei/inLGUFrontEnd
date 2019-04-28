@@ -1,15 +1,15 @@
 'use strict';
 import React, { Component } from 'react';
-import NavBar from './nav.js';
-import NewPost from './new_post.js'
-import Post from './post.js';
-import Poll from './poll.js';
-import Modals from './modal.js'
-import Weather from './weather.js'
-import Calendar from './calendar.js'
-import Head from './head.js'
-import Hottags from "./hottag.js"
-import ActivityFeed from "./activityfeed.js"
+import NavBar from './nav.jsx';
+import NewPost from './new_post.jsx'
+import Post from './post.jsx';
+import Poll from './poll.jsx';
+import Modals from './modal.jsx'
+import Weather from './weather.jsx'
+import Calendar from './calendar.jsx'
+import Head from './head.jsx'
+import Hottags from "./hottag.jsx"
+import ActivityFeed from "./activityfeed.jsx"
 import { observable, autorun, action, decorate } from "mobx";
 import { observer, inject } from "mobx-react";
 import axios from "axios"

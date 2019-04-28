@@ -1,8 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
-import NavBar from './nav.js';
-import Head from './head.js'
-import Modals from './modal.js'
+import NavBar from './nav';
+import Head from './head';
+import Modals from './modal';
 import { observable, autorun, action, decorate } from "mobx";
 import { inject } from 'mobx-react';
 import { observer } from "mobx-react";
@@ -35,7 +35,7 @@ function Friends(props) {
 
                         <div className="friend-avatar">
                             <div className="author-thumb">
-                                <img class="img-responsive" src={props.avatar} alt="author" />
+                                <img class="img-responsive" src={props.avatar} alt="author" style={{width:"98px", height:"98px"}}/>
                             </div>
                             <div className="author-content">
                                 <a href="#" className="h5 author-name">{props.username}</a>

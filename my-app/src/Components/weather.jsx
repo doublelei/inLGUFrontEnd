@@ -58,8 +58,8 @@ class Weathear extends Component {
 			<div className="ui-block">
 				<div className="widget w-wethear">
 					<a href="#" className="more"><svg className="olymp-three-dots-icon"><use xlinkHref="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
-					<Today current='233' /*{this.props.weather_info.cod}*/ low='58°' high='76°' />
-					<Description climate='Partly Sunny' current='67°' chance='49%' />
+					<Today current='23°' /*{this.props.weather_info.cod}*/ low='18°' high='30°' />
+					<Description climate='Partly Sunny' current='24°' chance='20%' />
 					<Forecast />
 					<Date date='Saturday, March 26th' location='San Francisco, CA' />
 				</div>

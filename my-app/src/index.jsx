@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Homepage from './Components/homePage.js'
-import Profile from './Components/profilePage.js'
-import { Follow, Follower } from './Components/follow.js'
-import { MyPost, Collections } from './Components/collection.js'
-import NotFound from './Components/404.js'
-import * as serviceWorker from './serviceWorker.js';
-import Login from './Components/loginPage.js'
+import Homepage from './Components/homePage'
+import Profile from './Components/profilePage'
+import { Follow, Follower } from './Components/follow'
+import { MyPost, Collections } from './Components/collection'
+import NotFound from './Components/404'
+import * as serviceWorker from './serviceWorker';
+import Login from './Components/loginPage'
 
 import { BrowserRouter as Router, Link, Route, Switch, Redirect} from 'react-router-dom'
 import { toast } from 'react-toastify';
-import Stores from './store/stores.js'
+import Stores from './store/stores'
 import { Provider } from 'mobx-react';
 
 

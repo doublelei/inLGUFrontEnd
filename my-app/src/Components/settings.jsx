@@ -1,7 +1,10 @@
 'use strict';
 import React, { Component } from 'react';
-
-
+import DropzoneComp from "./upload";
+import Stores from '../store/stores';
+import $ from 'jquery';
+import {Link} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function SideMenu(props) {
     return (
@@ -86,12 +89,19 @@ function Setting(props) {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div className="form-group label-floating">
-                                <label className="control-label">First Name</label>
-                                <input className="form-control" type="text" placeholder defaultValue="James" />
+                                <label className="control-label">User Name</label>
+                                <input className="form-control" type="text" placeholder defaultValue="YourName" id="user-name" />
                                 <span className="material-input" /></div>
                             <div className="form-group label-floating">
                                 <label className="control-label">Your Email</label>
-                                <input className="form-control" type="email" placeholder defaultValue="jspiegel@yourmail.com" />
+                                <input className="form-control" type="email" placeholder defaultValue="inlgu@yourmail.com" />
+                                <span className="material-input" /></div>
+
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div className="form-group label-floating">
+                                <label className="control-label">Gender</label>
+                                <input className="form-control" type="text" placeholder defaultValue="Alien" />
                                 <span className="material-input" /></div>
                             <div className="form-group date-time-picker label-floating">
                                 <label className="control-label">Your Birthday</label>
@@ -101,22 +111,13 @@ function Setting(props) {
                                 </span>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div className="form-group label-floating">
-                                <label className="control-label">Last Name</label>
-                                <input className="form-control" type="text" placeholder defaultValue="Spiegel" />
-                                <span className="material-input" /></div>
-                            <div className="form-group label-floating">
-                                <label className="control-label">Your Website</label>
-                                <input className="form-control" type="email" placeholder defaultValue="daydreamzagency.com" />
-                                <span className="material-input" /></div>
-                            <div className="form-group label-floating is-empty">
-                                <label className="control-label">Your Phone Number</label>
-                                <input className="form-control" type="text" placeholder />
-                                <span className="material-input" /></div>
-                        </div>
-                        
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div className="ui-block update-header-photo" style = {{width: "100%"}}>
+                                <div className="ui-block-title">
+                                    <h6 className="title">Update One Photo</h6>
+                                </div>
+                                <DropzoneComp />
+                            </div>
                             <div className="form-group with-icon label-floating">
                                 <label className="control-label">Your Facebook Account</label>
                                 <input className="form-control" type="text" defaultValue="www.facebook.com/james-spiegel95321" />
@@ -137,17 +138,14 @@ function Setting(props) {
                                 <input className="form-control" type="text" defaultValue="www.dribbble.com/thecowboydesigner" />
                                 <i className="fa fa-dribbble c-dribbble" aria-hidden="true" />
                                 <span className="material-input" /></div>
-                            <div className="form-group with-icon label-floating is-empty">
-                                <label className="control-label">Your Spotify Account</label>
-                                <input className="form-control" type="text" />
-                                <i className="fa fa-spotify c-spotify" aria-hidden="true" />
-                                <span className="material-input" /></div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <button className="btn btn-secondary btn-lg full-width">Restore all Attributes</button>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <button className="btn btn-primary btn-lg full-width">Save all Changes</button>
+                            <Link to="/">
+                                <button className="btn btn-primary btn-lg full-width" onClick={function onclik() {Stores.GlobalStore.change($("#user-name").val()); toast.success("Saved!")}}>Save all Changes</button>
+                            </Link>
                         </div>
                     </div>
                 </form>

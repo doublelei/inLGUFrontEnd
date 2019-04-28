@@ -1,7 +1,7 @@
 import { observable, action, decorate } from 'mobx';
 import GlobalStore from './store_global'
 
-const globalstore = new GlobalStore()
+// const globalstore = new GlobalStore()
 class CollectionStore {
     status_list = [
         {
@@ -16,18 +16,18 @@ class CollectionStore {
             }]
         }];
     getcollection() {
-        fetch(globalstore.basicURL + "/collections", {
-            headers: {
-                'id': globalstore.accounts.id,
-            }
-        })
-            .then(res => res.json())
-            .then(response => {
-                this.accounts = response
-            })
-            .catch(error => {
-                console.log("error.response.data.message")
-            })
+        // fetch(globalstore.basicURL + "/collections", {
+        //     headers: {
+        //         'id': globalstore.accounts.id,
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then(response => {
+        //         this.accounts = response
+        //     })
+        //     .catch(error => {
+        //         console.log("error.response.data.message")
+        //     })
     }
 
 };

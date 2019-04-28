@@ -1,8 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
 import NavBar from './nav'
-import Settings from './settings.js'
+import Settings from './settings'
 import { observer, inject } from "mobx-react";
+import { match, query } from 'react-router-dom'
 
 function r_SideMenu(props){
     return (
@@ -77,6 +78,9 @@ function r_SideMenu(props){
 }
 
 class _Profile extends Component {
+    componentWillMount(){
+        this.props.GlobalStore.getCurrentUser();
+    }
     render() {
         return (
             <body>
